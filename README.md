@@ -16,3 +16,7 @@ onze proeve opdracht met de opdracht gever SCM
 # Documentatie
 * Documentatie Link [Documentatie]()
 * Link naar online speelbaar prototype 	[Prototype]()
+
+# Code
+* Full code [Prototype Branch]()
+* Backup code [Prototype-Backup Branch]()

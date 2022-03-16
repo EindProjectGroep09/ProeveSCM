@@ -1,6 +1,6 @@
 # Proeve van bekwaamheid Simulatie Centrum Maritiem
 
-onze proeve opdracht met de opdracht gever SCM
+Onze proeve van bekwaamheid opdracht, deze opdracht is van Simulatie Centrum Maritiem (SCM)
 
 # Project team:
 * Justin van der Lans

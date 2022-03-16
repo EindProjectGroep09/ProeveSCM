@@ -15,7 +15,7 @@ Onze proeve van bekwaamheid opdracht, deze opdracht is van Simulatie Centrum Mar
 
 # Documentatie
 * Documentatie Link [Documentatie]()
-* Link naar online speelbaar prototype 	[Prototype]()
+* Link naar online speelbaar prototype 	[Prototype Download]()
 
 # Code
 * Backup code [Prototype Branch]()

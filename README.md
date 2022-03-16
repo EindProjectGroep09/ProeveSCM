@@ -16,4 +16,3 @@ onze proeve opdracht met de opdracht gever SCM
 # Documentatie
 * Documentatie Link [Documentatie]()
 * Link naar online speelbaar prototype 	[Prototype]()
-*

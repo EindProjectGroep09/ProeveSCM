@@ -10,9 +10,9 @@ public class DebugController : MonoBehaviour
 
     string input;
 
-    public static DebugCommand KILL_ALL;
-    public static DebugCommand ROSEBUD;
-    public static DebugCommand<int> SET_GOLD;
+    public static DebugCommand KILL_ALL_ENEMIES;
+    public static DebugCommand<int, Vector2> SPAWN_ENEMIES;
+
     public static DebugCommand HELP;
 
     public List<object> commandList;
@@ -30,16 +30,13 @@ public class DebugController : MonoBehaviour
 
     private void Awake() {
 
-        KILL_ALL = new DebugCommand("Kill_all", "Removes all heroes from the screen.", "Kill_all", () => {
-            Debug.Log("Killed all heroes");
+        KILL_ALL_ENEMIES = new DebugCommand("kill_all_enemies", "Removes all Enemy's from the screen.", "kill_all_enemies", () => {
+            //call the kill all enemies function
+            EnemySpawner.instance.kill_All_Enemies();
         });
 
-        ROSEBUD = new DebugCommand("rosebud", "Adds 1000 gold.", "rosebud", () => {
-            Debug.Log("Added 1000 gold to your account");
-        });
-
-        SET_GOLD = new DebugCommand<int>("set_gold", "Sets the amount of gold", "set_gold <gold_amount>", (x) => {
-            Debug.Log($"Added {x} gold to your account");
+        SPAWN_ENEMIES = new DebugCommand<int, Vector2>("spawn_enemies", "spawns enemies based in the inputed number", "spawn_enemies <enemy amount> <Xpos, Ypos>", async (x, y) => {
+            //call the spawn_enemies function 
         });
 
         HELP = new DebugCommand("help", "shows a list of commands", "help", () => {
@@ -47,9 +44,8 @@ public class DebugController : MonoBehaviour
         });
 
         commandList = new List<object> {
-            KILL_ALL,
-            ROSEBUD,
-            SET_GOLD,
+            KILL_ALL_ENEMIES,
+            SPAWN_ENEMIES,
             HELP
         };
     }
@@ -57,8 +53,7 @@ public class DebugController : MonoBehaviour
 
     Vector2 scroll;
     private void OnGUI() {
-        Debug.Log(showConsole);
-        if(!showConsole){ return; }
+        if(!showConsole){  showHelp = false; return; }
 
         float y = 0f;
 
@@ -101,8 +96,8 @@ public class DebugController : MonoBehaviour
                 if(commandList[i] as DebugCommand != null) {
                     (commandList[i] as DebugCommand).Invoke();
                 }
-                else if(commandList[i] as DebugCommand<int> != null) {
-                    (commandList[i] as DebugCommand<int>).Invoke(int.Parse(properties[1]));
+                else if(commandList[i] as DebugCommand<int, Vector2> != null) {
+                    (commandList[i] as DebugCommand<int, float, float>).Invoke(int.Parse(properties[1]), float.Parse(properties[2]), float.Parse(properties[3]));
                 }
             }
         }

@@ -37,7 +37,31 @@ public class DebugCommand<T1> : DebugCommandbase {
         this.command = command;
     }
 
-    public void Invoke(T1 value) {
-        command.Invoke(value);
+    public void Invoke(T1 v1) {
+        command.Invoke(v1);
+    }
+}
+
+public class DebugCommand<T1, T2> : DebugCommandbase {
+    private Action<T1, T2> command;
+
+    public DebugCommand(string id, string description, string format, Action<T1, T2> command) : base(id, description, format) {
+        this.command = command;
+    }
+
+    public void Invoke(T1 v1, T2 v2) {
+        command.Invoke(v1, v2);
+    }
+}
+
+public class DebugCommand<T1, T2, T3> : DebugCommandbase {
+    private Action<T1, T2, T3> command;
+
+    public DebugCommand(string id, string description, string format, Action<T1, T2, T3> command) : base(id, description, format) {
+        this.command = command;
+    }
+
+    public void Invoke(T1 v1, T2 v2, T3 v3) {
+        command.Invoke(v1, v2, v3);
     }
 }

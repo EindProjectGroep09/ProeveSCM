@@ -11,7 +11,7 @@ public class DebugController : MonoBehaviour
     string input;
 
     public static DebugCommand KILL_ALL_ENEMIES;
-    public static DebugCommand<int, Vector2> SPAWN_ENEMIES;
+    public static DebugCommand<int, Vector3> SPAWN_ENEMIES;
 
     public static DebugCommand HELP;
 
@@ -35,7 +35,7 @@ public class DebugController : MonoBehaviour
             EnemySpawner.instance.kill_All_Enemies();
         });
 
-        SPAWN_ENEMIES = new DebugCommand<int, Vector2>("spawn_enemies", "spawns enemies based in the inputed number", "spawn_enemies <enemy amount> <Xpos, Ypos>", async (x, y) => {
+        SPAWN_ENEMIES = new DebugCommand<int, Vector3>("spawn_enemies", "spawns enemies based in the inputed number", "spawn_enemies <enemy amount> <Xpos, Ypos, Zpos>", (x, y) => {
             //call the spawn_enemies function 
         });
 
@@ -96,8 +96,8 @@ public class DebugController : MonoBehaviour
                 if(commandList[i] as DebugCommand != null) {
                     (commandList[i] as DebugCommand).Invoke();
                 }
-                else if(commandList[i] as DebugCommand<int, Vector2> != null) {
-                    (commandList[i] as DebugCommand<int, float, float>).Invoke(int.Parse(properties[1]), float.Parse(properties[2]), float.Parse(properties[3]));
+                else if(commandList[i] as DebugCommand<int, Vector3> != null) {
+                    (commandList[i] as DebugCommand<int, Vector3>).Invoke(int.Parse(properties[1]), new Vector3(float.Parse(properties[2]), float.Parse(properties[3]), float.Parse(properties[4])));
                 }
             }
         }

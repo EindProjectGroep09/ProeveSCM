@@ -153,8 +153,8 @@ Transform:
   m_Children:
   - {fileID: 1016120207}
   - {fileID: 1780944490}
-  - {fileID: 772724478}
   - {fileID: 848115869}
+  - {fileID: 772724478}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,10 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonColors:
-  - {fileID: 1016120209}
-  - {fileID: 1780944492}
-  - {fileID: 772724480}
-  - {fileID: 848115871}
+  - {fileID: 2100000, guid: 210726586163d654b83dc4cd318494cf, type: 2}
+  - {fileID: 2100000, guid: fdc2b1b80f288584fafb30b51d623acd, type: 2}
+  - {fileID: 2100000, guid: db2d343c6357d144c8bdb79db193d5aa, type: 2}
+  - {fileID: 2100000, guid: c4a90fb968648304eb209476ffef8d64, type: 2}
   stayLit: 1
   oldColor: {fileID: 2100000, guid: 812297db956ad8a45b621d0d1461eb74, type: 2}
 --- !u!1 &105641277
@@ -516,7 +516,7 @@ Transform:
   m_LocalScale: {x: 1.8896989, y: 0.43294874, z: 1.8896989}
   m_Children: []
   m_Father: {fileID: 80787230}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &772724479
 BoxCollider:
@@ -595,6 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
   oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
+  numberOfButton: 3
 --- !u!1 &848115868
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +628,7 @@ Transform:
   m_LocalScale: {x: 1.8896989, y: 0.43294874, z: 1.8896989}
   m_Children: []
   m_Father: {fileID: 80787230}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &848115870
 BoxCollider:
@@ -706,6 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
   oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
+  numberOfButton: 2
 --- !u!1 &1016120206
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
   oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
+  numberOfButton: 0
 --- !u!1 &1292417483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
   oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
+  numberOfButton: 1
 --- !u!1 &1863016252
 GameObject:
   m_ObjectHideFlags: 0

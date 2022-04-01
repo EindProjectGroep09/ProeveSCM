@@ -8,20 +8,25 @@ public class SimonSaysInputHandler : MonoBehaviour
     [SerializeField] private MeshRenderer theMaterial;
     [SerializeField] private Material oldColor;
 
+    public int numberOfButton;
+
+    SimonSaysManager SSM;
     private void Start()
     {
+        SSM = FindObjectOfType <SimonSaysManager>();
         theMaterial = GetComponent<MeshRenderer>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         oldColor.color = theMaterial.material.color;
-        theMaterial.material.color = new Color(0f, 0f, 0f);
+        theMaterial.material.color = new Color(1f, 1f, 1f);
     }
 
     private void OnTriggerExit(Collider other)
     {
         theMaterial.material.color = oldColor.color;
+        SSM.ColorPressed(numberOfButton);
     }
 }
 

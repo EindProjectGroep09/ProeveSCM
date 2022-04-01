@@ -6,7 +6,7 @@ public class SimonSaysManager : MonoBehaviour
 {
 
     //public GameObject[] buttons = new GameObject[3];
-    public MeshRenderer[] buttonColors;
+    public Material[] buttonColors;
 
     private int colorPicker;
 
@@ -15,6 +15,8 @@ public class SimonSaysManager : MonoBehaviour
 
     public Material oldColor;
 
+    public float waitBetweenLights;
+    private float waitBetweenCounter;
     void Start()
     {
         StartGame();
@@ -28,7 +30,7 @@ public class SimonSaysManager : MonoBehaviour
         }
         else
         {
-            buttonColors[colorPicker].material.color = oldColor.color;
+            buttonColors[colorPicker].color = oldColor.color;
         }
     }
 
@@ -36,10 +38,22 @@ public class SimonSaysManager : MonoBehaviour
     {
         colorPicker = Random.Range(0, buttonColors.Length);
 
-        oldColor.color = buttonColors[colorPicker].material.color;
+        oldColor.color = buttonColors[colorPicker].color;
 
-        buttonColors[colorPicker].material.color = new Color(0f, 0f, 0f);
+        buttonColors[colorPicker].color = new Color(1f, 1f, 1f);
 
         stayLitCounter = stayLit;
+    }
+
+    public void ColorPressed(int pressedButton)
+    {
+        if (colorPicker == pressedButton)
+        {
+            Debug.Log("Atta boy");
+        }
+        else
+        {
+            Debug.Log("You dumb");
+        }
     }
 }

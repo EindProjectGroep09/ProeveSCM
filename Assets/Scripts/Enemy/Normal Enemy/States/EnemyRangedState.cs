@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRangedState : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class EnemyRangedState : EnemyBaseState {
+    public override void EnterState(EnemyStateManager enemy){
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void UpdateState(EnemyStateManager enemy){
+
+    }
+
+    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collider){
+
     }
 }

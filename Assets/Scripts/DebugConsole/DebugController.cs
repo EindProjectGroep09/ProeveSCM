@@ -8,12 +8,14 @@ public class DebugController : MonoBehaviour
     bool showConsole;
     bool showHelp;
 
+    bool showStats;
+
     string input;
 
     public static DebugCommand KILL_ALL_ENEMIES;
     public static DebugCommand<int, Vector3> SPAWN_ENEMIES;
-
     public static DebugCommand HELP;
+    public static DebugCommand SHOWSTATS;
 
     public List<object> commandList;
 
@@ -39,6 +41,10 @@ public class DebugController : MonoBehaviour
             //call the spawn_enemies function 
         });
 
+        SHOWSTATS = new DebugCommand("show_stats", "show statistics of the game like fps it works like a toggle", "show_stats", ()=>{
+            FPSDisplay.instance.toggleShowStats();
+        });
+
         HELP = new DebugCommand("help", "shows a list of commands", "help", () => {
             showHelp = true;
         });
@@ -46,6 +52,7 @@ public class DebugController : MonoBehaviour
         commandList = new List<object> {
             KILL_ALL_ENEMIES,
             SPAWN_ENEMIES,
+            SHOWSTATS,
             HELP
         };
     }
@@ -53,6 +60,7 @@ public class DebugController : MonoBehaviour
 
     Vector2 scroll;
     private void OnGUI() {
+
         if(!showConsole){  showHelp = false; return; }
 
         float y = 0f;

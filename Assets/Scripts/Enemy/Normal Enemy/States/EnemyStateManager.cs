@@ -1,30 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStateManager : MonoBehaviour{
 
+    //these vars are for changing the states 
+    public Transform player;
+    public NavMeshAgent agent;
+
+    //these vars are for the state machine
     EnemyBaseState currentState;
 
     public EnemyWanderState wanderState = new EnemyWanderState();
+    public EnemyChaseState chaseState = new EnemyChaseState();
     public EnemyMeleeState meleeState = new EnemyMeleeState();
+    public EnemyRangedState rangedState = new EnemyRangedState();
+    
+    private void Awake(){
+        player = GameObject.Find("PlayerObj").transform;
+        agent = GetComponent<NavMeshAgent>();
+    }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         currentState = wanderState;
         wanderState.EnterState(this);
     }
 
-    void OnCollisionEnter(Collision collision){
+    public void OnCollisionEnter(Collision collision){
         currentState.OnCollisionEnter(this, collision);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        currentState.UpdateState(this);
     }
 
     public void SwitchState(EnemyBaseState state){

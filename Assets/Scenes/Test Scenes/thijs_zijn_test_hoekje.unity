@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 308128949}
   - component: {fileID: 308128948}
   - component: {fileID: 308128950}
+  - component: {fileID: 308128951}
   m_Layer: 0
   m_Name: Debugcontroller
   m_TagString: Untagged
@@ -290,6 +291,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &308128951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308128947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098ae85c407ec8345825c4c35c45f9d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1118415575
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,11 +415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ab243354853f94fadd0ed6badceb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies_Per_Wave: 0
-  SmollEnemy: {fileID: 252759192523830577, guid: 411991993e1172d46af7ac2d0bf01db8, type: 3}
-  BigEnemy: {fileID: 6787220895028014453, guid: ed1cd60858c152d479f4b5fca22d8a08, type: 3}
-  SmollEnemyInterval: 1
-  BigEnemyInterval: 1.5
+  enemiesPerWave: 0
+  smollEnemy: {fileID: 252759192523830577, guid: 411991993e1172d46af7ac2d0bf01db8, type: 3}
+  bigEnemy: {fileID: 6787220895028014453, guid: ed1cd60858c152d479f4b5fca22d8a08, type: 3}
+  smollEnemyInterval: 3.5
+  bigEnemyInterval: 10
 --- !u!4 &1560970544
 Transform:
   m_ObjectHideFlags: 0

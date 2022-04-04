@@ -17,6 +17,13 @@ public class SimonSaysManager : MonoBehaviour
 
     public float waitBetweenLights;
     private float waitBetweenCounter;
+
+    private bool shouldBeLit;
+    private bool shouldBeDark;
+
+    public List<int> activeSequence;
+    private int positionInSequence;
+
     void Start()
     {
         StartGame();
@@ -24,25 +31,60 @@ public class SimonSaysManager : MonoBehaviour
 
     void Update()
     {
-        if (stayLitCounter > 0)
+        if (shouldBeLit)
         {
             stayLitCounter -= Time.deltaTime;
+            if (stayLitCounter < 0)
+            {
+                buttonColors[activeSequence[positionInSequence]].color = oldColor.color;
+                shouldBeLit = false;
+
+                shouldBeDark = true;
+                waitBetweenCounter = waitBetweenLights;
+                
+                positionInSequence++;
+            }
         }
-        else
+
+        if (shouldBeDark)
         {
-            buttonColors[colorPicker].color = oldColor.color;
+            waitBetweenCounter -= Time.deltaTime;
+
+            if (positionInSequence >= activeSequence.Count)
+            {
+                shouldBeDark = false;
+            }
+            else
+            {
+                if (waitBetweenCounter < 0)
+                {
+                    oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
+
+                    buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
+
+                    stayLitCounter = stayLit;
+                    shouldBeLit = true;
+                    shouldBeDark = false;
+                }
+            }
+
         }
     }
 
     public void StartGame()
     {
+        positionInSequence = 0;
+
         colorPicker = Random.Range(0, buttonColors.Length);
 
-        oldColor.color = buttonColors[colorPicker].color;
+        activeSequence.Add(colorPicker);
 
-        buttonColors[colorPicker].color = new Color(1f, 1f, 1f);
+        oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
+
+        buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
 
         stayLitCounter = stayLit;
+        shouldBeLit = true;
     }
 
     public void ColorPressed(int pressedButton)

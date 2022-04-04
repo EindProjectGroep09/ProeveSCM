@@ -177,6 +177,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c4a90fb968648304eb209476ffef8d64, type: 2}
   stayLit: 1
   oldColor: {fileID: 2100000, guid: 812297db956ad8a45b621d0d1461eb74, type: 2}
+  waitBetweenLights: 0.25
+  activeSequence: 
 --- !u!1 &105641277
 GameObject:
   m_ObjectHideFlags: 0

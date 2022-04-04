@@ -24,12 +24,15 @@ public class SimonSaysManager : MonoBehaviour
     public List<int> activeSequence;
     private int positionInSequence;
 
-    void Start()
+    private bool gameActive;
+    private int inputInSequence;
+
+    private void Start()
     {
         StartGame();
     }
 
-    void Update()
+    private void Update()
     {
         if (shouldBeLit)
         {
@@ -53,6 +56,7 @@ public class SimonSaysManager : MonoBehaviour
             if (positionInSequence >= activeSequence.Count)
             {
                 shouldBeDark = false;
+                gameActive = true;
             }
             else
             {
@@ -73,7 +77,11 @@ public class SimonSaysManager : MonoBehaviour
 
     public void StartGame()
     {
+        activeSequence.Clear();
+
         positionInSequence = 0;
+        
+        inputInSequence = 0;
 
         colorPicker = Random.Range(0, buttonColors.Length);
 
@@ -89,13 +97,41 @@ public class SimonSaysManager : MonoBehaviour
 
     public void ColorPressed(int pressedButton)
     {
-        if (colorPicker == pressedButton)
+
+        if (gameActive)
         {
-            Debug.Log("Atta boy");
+
+            if (activeSequence[inputInSequence] == pressedButton)
+            {
+                Debug.Log("Atta boy");
+
+                inputInSequence++;
+
+                if (inputInSequence >= activeSequence.Count)
+                {
+                    positionInSequence = 0;
+                    inputInSequence = 0;
+
+                    colorPicker = Random.Range(0, buttonColors.Length);
+
+                    activeSequence.Add(colorPicker);
+
+                    oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
+
+                    buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
+
+                    stayLitCounter = stayLit;
+                    shouldBeLit = true;
+
+                    gameActive = false;
+                }
+            }
+            else
+            {
+                Debug.Log("You dumb");
+                gameActive = false;
+            }
         }
-        else
-        {
-            Debug.Log("You dumb");
-        }
+
     }
 }

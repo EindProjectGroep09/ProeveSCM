@@ -8,12 +8,14 @@ public class SimonSaysManager : MonoBehaviour
     //public GameObject[] buttons = new GameObject[3];
     public Material[] buttonColors;
 
+    public MeshRenderer[] buttonPressed;
+
     private int colorPicker;
 
     public float stayLit;
     private float stayLitCounter;
 
-    public Material oldColor;
+    public Material[] oldColor = new Material[4];
 
     public float waitBetweenLights;
     private float waitBetweenCounter;
@@ -25,7 +27,7 @@ public class SimonSaysManager : MonoBehaviour
     private int positionInSequence;
 
     private bool gameActive;
-    private int inputInSequence;
+    public int inputInSequence;
 
     private void Start()
     {
@@ -39,7 +41,9 @@ public class SimonSaysManager : MonoBehaviour
             stayLitCounter -= Time.deltaTime;
             if (stayLitCounter < 0)
             {
-                buttonColors[activeSequence[positionInSequence]].color = oldColor.color;
+
+                buttonPressed[activeSequence[positionInSequence]].material.color = oldColor[activeSequence[positionInSequence]].color;
+
                 shouldBeLit = false;
 
                 shouldBeDark = true;
@@ -62,9 +66,8 @@ public class SimonSaysManager : MonoBehaviour
             {
                 if (waitBetweenCounter < 0)
                 {
-                    oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
 
-                    buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
+                    buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
@@ -87,9 +90,7 @@ public class SimonSaysManager : MonoBehaviour
 
         activeSequence.Add(colorPicker);
 
-        oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
-
-        buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
+        buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
 
         stayLitCounter = stayLit;
         shouldBeLit = true;
@@ -103,7 +104,6 @@ public class SimonSaysManager : MonoBehaviour
 
             if (activeSequence[inputInSequence] == pressedButton)
             {
-                Debug.Log("Atta boy");
 
                 inputInSequence++;
 
@@ -116,9 +116,7 @@ public class SimonSaysManager : MonoBehaviour
 
                     activeSequence.Add(colorPicker);
 
-                    oldColor.color = buttonColors[activeSequence[positionInSequence]].color;
-
-                    buttonColors[activeSequence[positionInSequence]].color = new Color(1f, 1f, 1f);
+                    buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
@@ -128,7 +126,8 @@ public class SimonSaysManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("You dumb");
+                //Game lost sequence stuff
+                activeSequence.Clear();
                 gameActive = false;
             }
         }

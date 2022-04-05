@@ -175,10 +175,20 @@ MonoBehaviour:
   - {fileID: 2100000, guid: fdc2b1b80f288584fafb30b51d623acd, type: 2}
   - {fileID: 2100000, guid: db2d343c6357d144c8bdb79db193d5aa, type: 2}
   - {fileID: 2100000, guid: c4a90fb968648304eb209476ffef8d64, type: 2}
+  buttonPressed:
+  - {fileID: 1016120209}
+  - {fileID: 1780944492}
+  - {fileID: 848115871}
+  - {fileID: 772724480}
   stayLit: 1
-  oldColor: {fileID: 2100000, guid: 812297db956ad8a45b621d0d1461eb74, type: 2}
+  oldColor:
+  - {fileID: 2100000, guid: 9928be71203c9a04aa6cfd7c3b40d69d, type: 2}
+  - {fileID: 2100000, guid: 26b865450a7db1b48af64ce0c1eacabf, type: 2}
+  - {fileID: 2100000, guid: fe4e62077b783d34a9d8381f49b95cfe, type: 2}
+  - {fileID: 2100000, guid: 708dea3a1c68dcd4eb6ff727c903b8b3, type: 2}
   waitBetweenLights: 0.25
   activeSequence: 
+  inputInSequence: 0
 --- !u!1 &105641277
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +563,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c4a90fb968648304eb209476ffef8d64, type: 2}
+  - {fileID: 2100000, guid: 708dea3a1c68dcd4eb6ff727c903b8b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -596,7 +606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
-  oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
   numberOfButton: 3
 --- !u!1 &848115868
 GameObject:
@@ -665,7 +674,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db2d343c6357d144c8bdb79db193d5aa, type: 2}
+  - {fileID: 2100000, guid: fe4e62077b783d34a9d8381f49b95cfe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -708,7 +717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
-  oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
   numberOfButton: 2
 --- !u!1 &1016120206
 GameObject:
@@ -777,7 +785,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 210726586163d654b83dc4cd318494cf, type: 2}
+  - {fileID: 2100000, guid: 9928be71203c9a04aa6cfd7c3b40d69d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -820,7 +828,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
-  oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
   numberOfButton: 0
 --- !u!1 &1292417483
 GameObject:
@@ -1158,7 +1165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdc2b1b80f288584fafb30b51d623acd, type: 2}
+  - {fileID: 2100000, guid: 26b865450a7db1b48af64ce0c1eacabf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1201,7 +1208,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theMaterial: {fileID: 0}
-  oldColor: {fileID: 2100000, guid: 0885b3b77f62e574f8a4adc2d4e8e36b, type: 2}
   numberOfButton: 1
 --- !u!1 &1863016252
 GameObject:

@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class UiController : MonoBehaviour
 {
 
-    AudioSource gameMusic;
-    bool audioVolumeOn;
+    //private AudioSource gameMusic;
+    //private bool audioVolumeOn;
 
-    private void Update()
+    public void Update()
     {
-        if (audioVolumeOn)
+/*        if (audioVolumeOn)
         {
             gameMusic.volume = 1f;
             return; 
@@ -19,23 +19,23 @@ public class UiController : MonoBehaviour
         {
             gameMusic.volume = 0f;
             return;
-        }
+        }*/
     }
 
-    private void QuitGame()
+    public void QuitGame()
     {
         Application.Quit();
     }
 
-    private void StartGameMain()
+    public void StartGameMain()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene("Test_Scene");
     }
 
-    private void VolumeButton()
+/*    public void VolumeButton()
     {
         audioVolumeOn = !audioVolumeOn;
-    }
+    }*/
 
 
 }

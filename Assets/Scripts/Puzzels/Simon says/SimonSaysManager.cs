@@ -58,7 +58,7 @@ public class SimonSaysManager : MonoBehaviour
             if (stayLitCounter < 0)
             {
 
-                buttonPressed[activeSequence[positionInSequence]].material.color = oldColor[activeSequence[positionInSequence]].color;
+                buttonPressed[activeSequence[positionInSequence]].material = oldColor[activeSequence[positionInSequence]];
 
                 shouldBeLit = false;
 
@@ -83,7 +83,7 @@ public class SimonSaysManager : MonoBehaviour
                 if (waitBetweenCounter < 0)
                 {
 
-                    buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
+                    buttonPressed[activeSequence[positionInSequence]].material = buttonColors[activeSequence[positionInSequence]];
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
@@ -108,7 +108,7 @@ public class SimonSaysManager : MonoBehaviour
 
         activeSequence.Add(colorPicker);
 
-        buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
+        buttonPressed[activeSequence[positionInSequence]].material = buttonColors[activeSequence[positionInSequence]];
 
         stayLitCounter = stayLit;
         shouldBeLit = true;
@@ -133,7 +133,7 @@ public class SimonSaysManager : MonoBehaviour
 
                     activeSequence.Add(colorPicker);
 
-                    buttonPressed[activeSequence[positionInSequence]].material.color = buttonColors[activeSequence[positionInSequence]].color;
+                    buttonPressed[activeSequence[positionInSequence]].material = buttonColors[activeSequence[positionInSequence]];
 
                     stayLitCounter = stayLit;
                     shouldBeLit = true;

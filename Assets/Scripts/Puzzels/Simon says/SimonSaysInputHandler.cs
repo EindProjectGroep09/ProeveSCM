@@ -15,12 +15,12 @@ public class SimonSaysInputHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SSM.buttonPressed[SSM.activeSequence[SSM.inputInSequence]].material.color = SSM.buttonColors[SSM.activeSequence[SSM.inputInSequence]].color;
+        SSM.buttonPressed[SSM.activeSequence[SSM.inputInSequence]].material = SSM.buttonColors[SSM.activeSequence[SSM.inputInSequence]];
     }
 
     private void OnTriggerExit(Collider other)
     {
-        SSM.buttonPressed[SSM.activeSequence[SSM.inputInSequence]].material.color = SSM.oldColor[SSM.activeSequence[SSM.inputInSequence]].color;
+        SSM.buttonPressed[SSM.activeSequence[SSM.inputInSequence]].material = SSM.oldColor[SSM.activeSequence[SSM.inputInSequence]];
         SSM.ColorPressed(numberOfButton);
     }
 }

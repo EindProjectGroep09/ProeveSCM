@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMeleeState : EnemyBaseState {
 
-    public float timeBetweenAttacks;
+    
     bool alreadyAttacked;
     public override void EnterState(EnemyStateManager enemy){
 
@@ -19,7 +19,11 @@ public class EnemyMeleeState : EnemyBaseState {
             //TODO: enemy melee attack code 
 
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
+        }
+
+        if(enemy.player.position.magnitude > enemy.meleeRange){
+            enemy.SwitchState(enemy.chaseState);
         }
     
     }

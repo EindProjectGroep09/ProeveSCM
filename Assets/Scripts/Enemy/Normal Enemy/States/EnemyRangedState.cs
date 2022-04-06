@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyRangedState : EnemyBaseState {
 
-    public float timeBetweenAttacks;
+    
     bool alreadyAttacked;
     public override void EnterState(EnemyStateManager enemy){
 
@@ -19,7 +19,11 @@ public class EnemyRangedState : EnemyBaseState {
             //TODO: enemy ranged attack code 
 
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
+        }
+
+        if(enemy.player.position.magnitude > enemy.rangedRange){
+            enemy.SwitchState(enemy.chaseState);
         }
 
     }

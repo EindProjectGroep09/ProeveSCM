@@ -15,10 +15,14 @@ public class EnemyChaseState : EnemyBaseState {
                 enemy.SwitchState(enemy.rangedState);
             }
         }else if (!enemy.isRanged) {
-            //! checks if player is in attack range and switches to ranged melee state
+            //! checks if player is in attack range and switches to melee attack state
             if(enemy.playerInMeleeRange = Physics.CheckSphere(enemy.GetComponentInParent<Transform>().position, enemy.meleeRange)){
                 enemy.SwitchState(enemy.meleeState);
             }
+        }
+
+        if(enemy.player.position.magnitude > enemy.sightRange){
+            enemy.SwitchState(enemy.wanderState);
         }
     }
 

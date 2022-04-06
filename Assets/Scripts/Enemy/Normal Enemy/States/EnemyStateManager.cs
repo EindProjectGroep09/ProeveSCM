@@ -4,13 +4,15 @@ using UnityEngine.AI;
 public class EnemyStateManager : MonoBehaviour{
 
     //these vars are for changing the states 
-    public bool isRanged { get { return (Random.value > 0.5f); } } 
-    
+    public bool isRanged;  //! this is code to mmake the bool random{ get { return (Random.value > 0.5f); } } 
+    [Header("Enemy Settings")]
     public Transform player;
     public NavMeshAgent agent;
     public float sightRange, rangedRange, meleeRange;
     public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
+    public float timeBetweenAttacks;
 
+    [Tooltip("state machine dont touch")]
     //these vars are for the state machine
     EnemyBaseState currentState;
 

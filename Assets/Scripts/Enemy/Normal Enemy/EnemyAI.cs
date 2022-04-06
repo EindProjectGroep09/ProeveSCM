@@ -1,38 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour {
+   
+    public NavMeshAgent agent;
+    public Transform player;
+
+    public LayerMask whatIsGround, whatIsPlayer;
+
+
+    //Partolling
+    public Vector3 walkPoint;
+    bool walkPointSet;
+    public float walkPointRange;
+
+    //Attacking
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
+
+    //States
+    public float sightRange, attackRange;
+    public bool playerInSightRange, playerInAttackRange;
+
+    private void Awake(){
+        player = GameObject.Find("PlayerOne").transform;
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void Update(){
+        //Check for sight and attack player
+        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
     
-    private Vector3 startingPosition;
-    private Vector3 roamingPosition;
+        if(!playerInSightRange && !playerInAttackRange) Patroling();
+        if(playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if(playerInSightRange && playerInSightRange) AttackPlayer();
     
-    // Start is called before the first frame update
-    private void Start(){
-        startingPosition = transform.position;
-        roamingPosition = GetRoamingPosition();
     }
 
-
-
-    private void Update() {
-
-        float reachedPositionDistance = 1f;
-        if(Vector3.Distance(transform.position, roamingPosition) < reachedPositionDistance){
-            roamingPosition = GetRoamingPosition();
-        }
+    private void Patroling(){
+        if(!walkPointSet) SearchWalkPoint();
     }
 
+    private void SearchWalkPoint(){
+        //Calculate random point in range 
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-    private Vector3 GetRoamingPosition() { 
-        return startingPosition + GetRandomDirection() * Random.Range(10f, 70f);
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+            walkPointSet = true;
     }
 
-    private Vector3 GetRandomDirection() {
-        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+    private void ChasePlayer(){
+
     }
 
-    private void findTarget(){
-        
+    private void AttackPlayer(){
+
     }
 }

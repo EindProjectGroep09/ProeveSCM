@@ -11,11 +11,11 @@ public class EnemyWanderState : EnemyBaseState {
     }
 
     public override void UpdateState(EnemyStateManager enemy){
-        //check if the player is in sightRange and switching to chasing if the player is in range 
+        //* check if the player is in sightRange and switching to chasing if the player is in range 
         if(enemy.playerInSightRange = Physics.CheckSphere(transform.position, enemy.sightRange))
         enemy.SwitchState(enemy.chaseState);
 
-        //checking if the enemy has an wander point 
+        //* checking if the enemy has an wander point 
         if(!walkPointSet) SearchWalkPoint();
         if(walkPointSet) enemy.agent.SetDestination(walkPoint);
 

@@ -29,6 +29,9 @@ public class SimonSaysManager : MonoBehaviour
     private bool gameActive;
     public int inputInSequence;
 
+    private float simonSaysTimer = 15f;
+    private float gameTimer = 300f;
+
     private void Start()
     {
         StartGame();
@@ -36,6 +39,19 @@ public class SimonSaysManager : MonoBehaviour
 
     private void Update()
     {
+        simonSaysTimer -= Time.deltaTime;
+
+        if (simonSaysTimer < 0)
+        {
+            gameTimer += 30f;
+            StartGame();
+        }
+
+        if (gameTimer < 0)
+        {
+            //Won game thing
+        }
+
         if (shouldBeLit)
         {
             stayLitCounter -= Time.deltaTime;
@@ -80,6 +96,8 @@ public class SimonSaysManager : MonoBehaviour
 
     public void StartGame()
     {
+        simonSaysTimer = 15f;
+
         activeSequence.Clear();
 
         positionInSequence = 0;
@@ -106,7 +124,6 @@ public class SimonSaysManager : MonoBehaviour
             {
 
                 inputInSequence++;
-
                 if (inputInSequence >= activeSequence.Count)
                 {
                     positionInSequence = 0;
@@ -121,16 +138,21 @@ public class SimonSaysManager : MonoBehaviour
                     stayLitCounter = stayLit;
                     shouldBeLit = true;
 
-                    gameActive = false;
+                    gameActive = false; 
+                    simonSaysTimer = 15f;
                 }
             }
             else
             {
                 //Game lost sequence stuff
-                activeSequence.Clear();
+                StartGame();
                 gameActive = false;
             }
         }
+    }
 
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(10, 10, 100, 20), simonSaysTimer.ToString());
     }
 }

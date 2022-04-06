@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5c5c34809d73318439f3225d3c869e8b
+=======
+guid: 7d202fb8cb2084b45b8cb9085824cb69
+>>>>>>> origin/PlayerShoot
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

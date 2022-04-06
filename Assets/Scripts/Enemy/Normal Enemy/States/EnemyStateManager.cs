@@ -4,8 +4,12 @@ using UnityEngine.AI;
 public class EnemyStateManager : MonoBehaviour{
 
     //these vars are for changing the states 
+    public bool isRanged { get { return (Random.value > 0.5f); } } 
+    
     public Transform player;
     public NavMeshAgent agent;
+    public float sightRange, rangedRange, meleeRange;
+    public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
 
     //these vars are for the state machine
     EnemyBaseState currentState;
@@ -40,4 +44,5 @@ public class EnemyStateManager : MonoBehaviour{
         currentState = state;
         state.EnterState(this);
     }
+
 }

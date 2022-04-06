@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyWanderState : EnemyBaseState {
 
@@ -7,23 +6,23 @@ public class EnemyWanderState : EnemyBaseState {
     public bool walkPointSet;
     public float walkPointRange;
 
-    public float sightRange;
-    public bool playerInSightRange;
-
-    private NavMeshAgent agent;
-
     public override void EnterState(EnemyStateManager enemy){
         
     }
 
     public override void UpdateState(EnemyStateManager enemy){
         //check if the player is in sightRange and switching to chasing if the player is in range 
-        if(playerInSightRange = Physics.CheckSphere(transform.position, sightRange))
+        if(enemy.playerInSightRange = Physics.CheckSphere(transform.position, enemy.sightRange))
         enemy.SwitchState(enemy.chaseState);
 
         //checking if the enemy has an wander point 
         if(!walkPointSet) SearchWalkPoint();
-        if(walkPointSet) agent.SetDestination(walkPoint);
+        if(walkPointSet) enemy.agent.SetDestination(walkPoint);
+
+        Vector3 distanceToWalkpoint = enemy.transform.position - walkPoint;
+
+        if(distanceToWalkpoint.magnitude < 1) walkPointSet = false;
+        
     }
 
     public override void OnCollisionEnter(EnemyStateManager enemy, Collision collider){

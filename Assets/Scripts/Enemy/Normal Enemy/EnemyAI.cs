@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour {
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool playerInSightRange, playerInRangedRange;
 
     private void Awake(){
         player = GameObject.Find("PlayerOne").transform;
@@ -32,10 +32,10 @@ public class EnemyAI : MonoBehaviour {
     private void Update(){
         //Check for sight and attack player
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInRangedRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
     
-        if(!playerInSightRange && !playerInAttackRange) Patroling();
-        if(playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if(!playerInSightRange && !playerInRangedRange) Patroling();
+        if(playerInSightRange && !playerInRangedRange) ChasePlayer();
         if(playerInSightRange && playerInSightRange) AttackPlayer();
     
     }

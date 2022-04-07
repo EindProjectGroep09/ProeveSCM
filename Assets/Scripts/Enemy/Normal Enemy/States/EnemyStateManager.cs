@@ -22,7 +22,7 @@ public class EnemyStateManager : MonoBehaviour{
     public EnemyRangedState rangedState = new EnemyRangedState();
     
     private void Awake(){
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -37,9 +37,10 @@ public class EnemyStateManager : MonoBehaviour{
     }
 
     // Update is called once per frame
-    public void Update()
-    {
+    public void Update(){
+        Debug.Log(this);
         currentState.UpdateState(this);
+
     }
 
     public void SwitchState(EnemyBaseState state){

@@ -16,5 +16,9 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
 		}
+        else
+        {
+			Destroy(gameObject);
+        }
 	}
 }

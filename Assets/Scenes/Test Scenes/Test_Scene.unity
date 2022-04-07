@@ -754,7 +754,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.019999998, z: 0.0040083523}
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.001}
   m_Center: {x: -0.0000000037252903, y: 0.00000004004687, z: 0.005709172}
 --- !u!1001 &990517000
 PrefabInstance:
@@ -833,6 +833,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53e15dcaef7d27c4c977b56f874f63c6, type: 3}
+--- !u!1 &990517001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5060020527139473032, guid: 53e15dcaef7d27c4c977b56f874f63c6, type: 3}
+  m_PrefabInstance: {fileID: 990517000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &990517002
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990517001}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 19.475197, y: 19.4752, z: 1.7608697}
+  m_Center: {x: 0.0000005066395, y: -0.0000007301569, z: 0.0799146}
 --- !u!1 &992035271
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1016,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.019999998, z: 0.0040083523}
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.001}
   m_Center: {x: -0.000000011175871, y: 0.000000054948032, z: 0.005709153}
 --- !u!1 &1297320715
 GameObject:
@@ -1613,7 +1631,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.019999998, z: 0.0040083523}
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.001}
   m_Center: {x: -0.000000018626451, y: 0.00000004004687, z: 0.0057091396}
 --- !u!114 &1902935252
 MonoBehaviour:
@@ -1639,7 +1657,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.019999998, z: 0.0040083523}
+  m_Size: {x: 0.02, y: 0.019999998, z: 0.001}
   m_Center: {x: -0.0000000037252903, y: 0.000000054948032, z: 0.005709153}
 --- !u!1001 &1919985547
 PrefabInstance:

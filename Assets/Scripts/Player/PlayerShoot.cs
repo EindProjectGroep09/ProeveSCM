@@ -14,30 +14,35 @@ public class PlayerShoot : MonoBehaviour
     private float timer;
     private float maxTimer = 0.1f;
 
+    public InputActionMap playerInput;
     //[SerializeField] private AudioSource bulletFire;
+    PlayerControls controls;
+    PlayerControls.MovementActions movement;
 
-    void Update()
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        movement = controls.Movement;
+
+        movement.Shoot.performed += _ => Shoot();
+    }
+    private void Update()
     {
         timer += Time.deltaTime;
-
-        if (timer >= maxTimer)
-        {
-            if (Input.GetButtonDown("Fire1"))
-            {
-                Shoot();
-            }
-        }
     }
 
+    
     public void Shoot()
     {
-        GameObject projectile = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
-        projectile.transform.position = bulletPos.position;
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = bulletPos.transform.forward * speed;
-        //bulletFire.Play();
-        //Instantiate(shootParticle, bulletPos.position, bulletPos.rotation);
-        timer = 0;
+            Debug.Log("Shot");
+            //* movementInput = ctx.ReadValue<Vector2>();
+            GameObject projectile = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
+            projectile.transform.position = bulletPos.position;
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            rb.velocity = bulletPos.transform.forward * speed;
+            //bulletFire.Play();
+            //Instantiate(shootParticle, bulletPos.position, bulletPos.rotation);
+            timer = 0;
 
     }
 }

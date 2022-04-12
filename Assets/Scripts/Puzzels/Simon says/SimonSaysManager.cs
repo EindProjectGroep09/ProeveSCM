@@ -30,7 +30,8 @@ public class SimonSaysManager : MonoBehaviour
     public int inputInSequence;
 
     private float simonSaysTimer = 15f;
-    private float gameTimer = 300f;
+    private float gameTimer;
+    private int simonSaysHealth = 3;
 
     private void Start()
     {
@@ -39,17 +40,29 @@ public class SimonSaysManager : MonoBehaviour
 
     private void Update()
     {
+        switch (simonSaysHealth)
+        {
+            //!int x;
+            case 1:
+                //TODO Mask Unhappy for a bit and spawn a lot of enemies
+                //! Instantiate enemy * x;
+                //!Play animation
+                //! Timer goes down
+                break;
+            case 2:
+                //TODO Mask stays unhappy and spawn more enemies
+                break;
+            case 3:
+                //TODO Mask mad and spawn even more enemies and/or a boss
+                break;
+        }
         simonSaysTimer -= Time.deltaTime;
+        gameTimer += Time.deltaTime;
 
         if (simonSaysTimer < 0)
         {
-            gameTimer += 30f;
+            gameTimer -= 30f;
             StartGame();
-        }
-
-        if (gameTimer < 0)
-        {
-            //Won game thing
         }
 
         if (shouldBeLit)
@@ -129,10 +142,18 @@ public class SimonSaysManager : MonoBehaviour
                     positionInSequence = 0;
                     inputInSequence = 0;
 
-                    colorPicker = Random.Range(0, buttonColors.Length);
+                    if (activeSequence.Count < 5)
+                    {
+                        colorPicker = Random.Range(0, buttonColors.Length);
 
-                    activeSequence.Add(colorPicker);
-
+                        activeSequence.Add(colorPicker);
+                    }
+                    else if (activeSequence.Count > 5)
+                    {
+                        //TODO Won sequence state
+                        //gameTimer += 50f;
+                        //StartGame();
+                    }
                     buttonPressed[activeSequence[positionInSequence]].material = buttonColors[activeSequence[positionInSequence]];
 
                     stayLitCounter = stayLit;
@@ -144,12 +165,25 @@ public class SimonSaysManager : MonoBehaviour
             }
             else
             {
-                //Game lost sequence stuff
-                StartGame();
+                StartGame(); //! delay this
                 gameActive = false;
+                //TODO Make a lose state
+                //!StartCoroutine(LosSequence());
+                 
+
             }
         }
     }
+
+    /*!
+    private IEnumerator LosSequence()
+    {
+        gameTmer += 30f
+        yield return new WaitForSeconds(2f);
+        StartGame();
+        simonSaysHealth -= 1;
+    }
+     */
 
     private void OnGUI()
     {

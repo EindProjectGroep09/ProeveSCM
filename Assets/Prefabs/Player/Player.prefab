@@ -237,6 +237,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPos: {fileID: 84877244691416252}
   bullet: {fileID: 3046314566224776307, guid: 857fa4b7ac490eb47a6358db2bce0871, type: 3}
+  playerInput:
+    m_Name: Player Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a2ee3388-e11c-4aa9-bf1b-f70bcc220dff
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7882f28f-3df7-497f-910e-30664aa5321f
+      m_Path: <XInputController>/leftShoulder
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Input
+      m_Flags: 0
+    m_Flags: 0
 --- !u!114 &84877245694067543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,9 +324,21 @@ MonoBehaviour:
     m_ActionId: cfdcd4a2-67a7-455c-85a4-b228851a8a00
     m_ActionName: Movement/Rotate[/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f454b8b0-dd08-4bc1-aa9f-09b8af886195
-    m_ActionName: Movement/Shoot
+      m_Calls:
+      - m_Target: {fileID: 84877245694067536}
+        m_TargetAssemblyTypeName: PlayerShoot, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3056a48e-0738-477c-b62a-fe2efca56303
+    m_ActionName: Movement/Shoot[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement

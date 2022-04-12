@@ -5,9 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UiController : MonoBehaviour
 {
-
     //private AudioSource gameMusic;
-    //private bool audioVolumeOn;
+    //* private bool audioVolumeOn;
 
     public void Update()
     {

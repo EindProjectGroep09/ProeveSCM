@@ -5,9 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class UiController : MonoBehaviour
 {
-    //private AudioSource gameMusic;
+    //private AudioSource audio;
+    [SerializeField] private AudioSource gameMusic;
+    [SerializeField] private AudioSource buttonClick;
     //* private bool audioVolumeOn;
 
+    private void Start()
+    {
+        gameMusic.Play();
+    }
     public void Update()
     {
 /*        if (audioVolumeOn)
@@ -23,12 +29,14 @@ public class UiController : MonoBehaviour
 
     public void QuitGame()
     {
+        buttonClick.Play();
         Application.Quit();
     }
 
     public void StartGameMain()
     {
-        SceneManager.LoadScene("Test_Scene");
+        buttonClick.Play();
+        SceneManager.LoadScene("Test_Scene Tutorial");
     }
 
 /*    public void VolumeButton()

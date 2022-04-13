@@ -4,17 +4,37 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource gameMusic;
-    /*! 
+    //public AudioSource gameMusic;
+    /*!
      Every sound of the game, in this order:
-    0. Door
-    1. Button Press UI
-    2. Button Press Simon Says
-    3. Enemy Hit
-    4. Player Hit
-    5. Mask upsets
-    6.  Shoot
+    #Environment
+    0. Music
+    1. Random Circus Sounds
+    2. Button - Press
+    3. Button Depress?
+    4. Door opening
+    5. Buzzer - Sequence Fail
+    #Enemy
+    6. Movement
+    7. Attack
+    8. Damage Taken
+    9. Dying
+    #Player
+    10. Running
+    11. Damage Taken
+    12. Dying
+    #Gun
+    13. Shoot
+    14. Hit (Not yet)
+    #Fail Sequence
+    15. Lights Out
+    16.  Lights On
+    17. Mask - Laughing
      */
-    public AudioSource[] gameSounds = new AudioSource[7];
+    public AudioSource[] gameSounds = new AudioSource[18];
 
+    private void Start()
+    {
+        gameSounds[0].Play();
+    }
 }

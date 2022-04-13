@@ -1,51 +1,63 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
+using System.Collections;
+
 
 public class EnemyStateManager : MonoBehaviour{
 
     //these vars are for changing the states 
-    public bool isRanged;  //! this is code to mmake the bool random{ get { return (Random.value > 0.5f); } } 
+    public bool isRanged;  //! this is code to make the bool random{ get { return (Random.value > 0.5f); } } 
     [Header("Enemy Settings")]
     public Transform player;
     public NavMeshAgent agent;
-    public float sightRange, rangedRange, meleeRange;
+    public float sightRange, rangedRange, meleeRange, walkPointRange;
     public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
     public float timeBetweenAttacks;
+    public LayerMask whatIsGround, whatIsPlayer;
 
-    [Tooltip("state machine dont touch")]
     //these vars are for the state machine
-    EnemyBaseState currentState;
+    [Header("State Settings")]
+    public EnemyBaseState currentState;
+    [HideInInspector] public EnemyWanderState wanderState =  new EnemyWanderState();
+    [HideInInspector] public EnemyChaseState chaseState = new EnemyChaseState();
+    [HideInInspector] public EnemyMeleeState meleeState = new EnemyMeleeState();
+    [HideInInspector] public EnemyRangedState rangedState = new EnemyRangedState(); 
 
-    public EnemyWanderState wanderState = new EnemyWanderState();
-    public EnemyChaseState chaseState = new EnemyChaseState();
-    public EnemyMeleeState meleeState = new EnemyMeleeState();
-    public EnemyRangedState rangedState = new EnemyRangedState();
     
     private void Awake(){
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
+  
     }
 
-    private void Start()
-    {
+    private void Start(){
         currentState = wanderState;
-        wanderState.EnterState(this);
+        currentState.EnterState(this);     
     }
 
     public void OnCollisionEnter(Collision collision){
-        currentState.OnCollisionEnter(this, collision);
+        currentState.CollisionEnter(this, collision);
     }
 
-    // Update is called once per frame
     public void Update(){
-        Debug.Log(this);
         currentState.UpdateState(this);
-
     }
 
     public void SwitchState(EnemyBaseState state){
         currentState = state;
         state.EnterState(this);
+    }
+
+    private void OnDrawGizmosSelected(){
+        Gizmos.color = Color.red;
+        if(isRanged) Gizmos.DrawWireSphere(transform.position, rangedRange);
+        if(!isRanged) Gizmos.DrawWireSphere(transform.position, meleeRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, walkPointRange);
     }
 
 }

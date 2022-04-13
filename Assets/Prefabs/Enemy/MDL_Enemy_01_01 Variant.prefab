@@ -34,16 +34,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7d0e4ab0be8c94e9c088956d02385a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRanged: 0
+  isRanged: 1
   player: {fileID: 0}
-  agent: {fileID: 0}
-  sightRange: 1.73
-  rangedRange: 3.77
-  meleeRange: 2.88
+  agent: {fileID: 1363324554}
+  sightRange: 7.18
+  rangedRange: 5.47
+  meleeRange: 3.62
   playerInRangedRange: 0
   playerInMeleeRange: 0
   playerInSightRange: 0
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 1.8
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  currentState: {fileID: 0}
   wanderState: {fileID: 0}
   chaseState: {fileID: 0}
   meleeState: {fileID: 0}
@@ -86,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2cade30ae1fd48440accd167c0f54656, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -9.048941
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2cade30ae1fd48440accd167c0f54656, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2cade30ae1fd48440accd167c0f54656, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 21.342478
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2cade30ae1fd48440accd167c0f54656, type: 3}
       propertyPath: m_LocalRotation.w

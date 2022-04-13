@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.AI;
 
-public abstract class EnemyBaseState : MonoBehaviour {
-
+public abstract class EnemyBaseState {
     public abstract void EnterState(EnemyStateManager  enemy);
 
     public abstract void UpdateState(EnemyStateManager enemy);
 
-    public abstract void OnCollisionEnter(EnemyStateManager enemy, Collision collision);
+    public abstract void CollisionEnter(EnemyStateManager enemy, Collision collision);
+
 
 }

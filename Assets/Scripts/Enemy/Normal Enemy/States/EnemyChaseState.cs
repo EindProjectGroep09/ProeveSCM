@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyChaseState : EnemyBaseState {
 
     public override void EnterState(EnemyStateManager enemy){
+        Debug.Log("Entered Chase state");
     }
 
     public override void UpdateState(EnemyStateManager enemy){
@@ -11,14 +12,12 @@ public class EnemyChaseState : EnemyBaseState {
 
         if(enemy.isRanged) { 
             //! checks if player is in attack range and switches to ranged attack state
-            if(enemy.playerInRangedRange = Physics.CheckSphere(enemy.GetComponentInParent<Transform>().position, enemy.rangedRange)){
-                enemy.SwitchState(enemy.rangedState);
-            }
+            if(enemy.playerInRangedRange = Physics.CheckSphere(enemy.transform.position, enemy.rangedRange, enemy.whatIsPlayer))
+            enemy.SwitchState(enemy.rangedState);
         }else if (!enemy.isRanged) {
             //! checks if player is in attack range and switches to melee attack state
-            if(enemy.playerInMeleeRange = Physics.CheckSphere(enemy.GetComponentInParent<Transform>().position, enemy.meleeRange)){
-                enemy.SwitchState(enemy.meleeState);
-            }
+            if(enemy.playerInMeleeRange = Physics.CheckSphere(enemy.transform.position, enemy.meleeRange, enemy.whatIsPlayer))
+            enemy.SwitchState(enemy.meleeState);
         }
 
         if(enemy.player.position.magnitude > enemy.sightRange){
@@ -26,7 +25,7 @@ public class EnemyChaseState : EnemyBaseState {
         }
     }
 
-    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collision){
+    public override void CollisionEnter(EnemyStateManager enemy, Collision collision){
 
     } 
 

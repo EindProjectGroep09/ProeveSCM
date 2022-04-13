@@ -9,7 +9,7 @@ public class BulletScript : MonoBehaviour
 		Destroy(gameObject, 3);
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void CollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{

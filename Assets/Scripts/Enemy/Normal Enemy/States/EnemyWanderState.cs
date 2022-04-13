@@ -6,14 +6,22 @@ public class EnemyWanderState : EnemyBaseState {
     public bool walkPointSet;
     public float walkPointRange;
 
+    public LayerMask whatIsGround, whatIsPlayer;  
+
+    private Transform transform;  
+
     public override void EnterState(EnemyStateManager enemy){
-        
+        Debug.Log("Entered Wander state");
+        walkPointRange = enemy.walkPointRange;
+        whatIsGround = enemy.whatIsGround;
+        whatIsPlayer = enemy.whatIsPlayer;
+        transform = enemy.transform;
     }
 
     public override void UpdateState(EnemyStateManager enemy){
         //* check if the player is in sightRange and switching to chasing if the player is in range 
-        if(enemy.playerInSightRange = Physics.CheckSphere(transform.position, enemy.sightRange))
-        enemy.SwitchState(enemy.chaseState);
+
+        if(enemy.playerInSightRange = Physics.CheckSphere(transform.position, enemy.sightRange, whatIsPlayer)) enemy.SwitchState(enemy.chaseState);
 
         //* checking if the enemy has an wander point 
         if(!walkPointSet) SearchWalkPoint();
@@ -25,7 +33,7 @@ public class EnemyWanderState : EnemyBaseState {
         
     }
 
-    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collider){
+    public override void CollisionEnter(EnemyStateManager enemy, Collision collider){
 
     }
 
@@ -35,7 +43,9 @@ public class EnemyWanderState : EnemyBaseState {
 
         walkPoint = new Vector3(transform.position.x + RandomX, transform.position.y, transform.position.z + RandomZ);
 
-        if(Physics.Raycast(walkPoint, -transform.up, 2f)) walkPointSet = true;
+        if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
+
     }
+
 
 }

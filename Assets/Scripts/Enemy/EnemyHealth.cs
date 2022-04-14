@@ -8,12 +8,15 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float health;
     private float currentHealth;
    // private Image enemyBar;
-    [SerializeField]
+    //[SerializeField]
     //private GameObject enemyUI;
+    AudioController audioController;
 
 
     private void Start()
     {
+        audioController = GameObject.FindObjectOfType<AudioController>();
+
         //enemyUI = GameObject.FindGameObjectWithTag("UI");
         ///enemyBar = enemyUI.GetComponent<Image>();
         currentHealth = health;
@@ -31,6 +34,8 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            audioController.gameSounds[8].Play();
+
             Destroy(gameObject);
         }
     }

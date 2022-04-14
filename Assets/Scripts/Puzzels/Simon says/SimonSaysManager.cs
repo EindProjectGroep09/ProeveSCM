@@ -29,21 +29,23 @@ public class SimonSaysManager : MonoBehaviour
     private bool gameActive;
     public int inputInSequence;
 
-    private float simonSaysTimer = 15f;
+    private float simonSaysTimer;
     private float gameTimer;
     private int simonSaysHealth = 3;
 
+    AudioController audioController;
+
     private void Start()
     {
+        audioController = GameObject.FindObjectOfType<AudioController>();
         StartGame();
     }
-
     private void Update()
     {
         switch (simonSaysHealth)
         {
             //!int x;
-            case 1:
+            case 3:
                 //TODO Mask Unhappy for a bit and spawn a lot of enemies
                 //! Instantiate enemy * x;
                 //!Play animation
@@ -52,7 +54,7 @@ public class SimonSaysManager : MonoBehaviour
             case 2:
                 //TODO Mask stays unhappy and spawn more enemies
                 break;
-            case 3:
+            case 1:
                 //TODO Mask mad and spawn even more enemies and/or a boss
                 break;
         }
@@ -61,6 +63,8 @@ public class SimonSaysManager : MonoBehaviour
 
         if (simonSaysTimer < 0)
         {
+            StartCoroutine(LosSequence());
+
             gameTimer -= 30f;
             StartGame();
         }
@@ -165,25 +169,29 @@ public class SimonSaysManager : MonoBehaviour
             }
             else
             {
+                audioController.gameSounds[4].Play(); 
+
                 StartGame(); //! delay this
                 gameActive = false;
-                //TODO Make a lose state
-                //!StartCoroutine(LosSequence());
+                //TODO Make a lose state        
+                //audioController.gameSounds[4].Play();
+                StartCoroutine(LosSequence());
                  
 
             }
         }
     }
 
-    /*!
     private IEnumerator LosSequence()
     {
-        gameTmer += 30f
+        audioController.gameSounds[13].Play();
+
+        gameTimer += 30f;
         yield return new WaitForSeconds(2f);
         StartGame();
         simonSaysHealth -= 1;
     }
-     */
+
 
     private void OnGUI()
     {

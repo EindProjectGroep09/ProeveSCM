@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 84877245694067542}
   - component: {fileID: 3264733470574503648}
   - component: {fileID: -5581159190197007790}
+  - component: {fileID: 7013135707007158685}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -239,21 +240,10 @@ MonoBehaviour:
   bullet: {fileID: 3046314566224776307, guid: 857fa4b7ac490eb47a6358db2bce0871, type: 3}
   playerInput:
     m_Name: Player Input
-    m_Type: 0
-    m_ExpectedControlType: 
     m_Id: a2ee3388-e11c-4aa9-bf1b-f70bcc220dff
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7882f28f-3df7-497f-910e-30664aa5321f
-      m_Path: <XInputController>/leftShoulder
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Player Input
-      m_Flags: 0
-    m_Flags: 0
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &84877245694067543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +363,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &7013135707007158685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003426089836936706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e3d9023d907c04dbecf6a3e34d81d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1050731409862797309
 GameObject:
   m_ObjectHideFlags: 0

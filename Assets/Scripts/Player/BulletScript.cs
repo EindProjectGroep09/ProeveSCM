@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+	AudioController audioController;
 	void Start()
 	{
+		audioController = GameObject.FindObjectOfType<AudioController>();
+
 		Destroy(gameObject, 3);
 	}
 
@@ -13,6 +16,7 @@ public class BulletScript : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
+			audioController.gameSounds[7].Play();
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
 		}

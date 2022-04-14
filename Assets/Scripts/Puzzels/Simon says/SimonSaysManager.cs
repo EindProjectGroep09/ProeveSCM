@@ -188,7 +188,6 @@ public class SimonSaysManager : MonoBehaviour
 
         gameTimer += 30f;
         yield return new WaitForSeconds(2f);
-        StartGame();
         simonSaysHealth -= 1;
     }
 

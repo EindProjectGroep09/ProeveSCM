@@ -87,16 +87,16 @@ public class EnemyStateManager : MonoBehaviour{
 }
 
 
-[CustomEditor(typeof(EnemyStateManager))]
- public class EnemyStateManagerEditor : Editor
- {
-   void OnInspectorGUI()
-   {
-     var EnemyStateManager = target as EnemyStateManager;
+// [CustomEditor(typeof(EnemyStateManager))]
+//  public class EnemyStateManagerEditor : Editor
+//  {
+//    void OnInspectorGUI()
+//    {
+//      var EnemyStateManager = target as EnemyStateManager;
  
-     EnemyStateManager.isRanged = GUILayout.Toggle(EnemyStateManager.isRanged, "isRanged");
+//      EnemyStateManager.isRanged = GUILayout.Toggle(EnemyStateManager.isRanged, "isRanged");
      
-     if(EnemyStateManager.isRanged)
-       EnemyStateManager.BulletPrefab = EditorGUILayout.ObjectField(EnemyStateManager.BulletPrefab,  typeof(GameObject), true);
-   }
- }
+//      if(EnemyStateManager.isRanged)
+//        EnemyStateManager.BulletPrefab = EditorGUILayout.ObjectField(EnemyStateManager.BulletPrefab,  typeof(Object) );
+//    }
+//  }

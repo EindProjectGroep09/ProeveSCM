@@ -33,10 +33,13 @@ public class SimonSaysManager : MonoBehaviour
     private float gameTimer;
     private int simonSaysHealth = 3;
 
-    AudioController audioController;
-
+    private AudioController audioController;
+    [SerializeField] GameObject maskObject;
+    private Animator animMask;
+    
     private void Start()
     {
+        animMask = maskObject.GetComponent<Animator>();
         audioController = GameObject.FindObjectOfType<AudioController>();
         StartGame();
     }
@@ -46,6 +49,7 @@ public class SimonSaysManager : MonoBehaviour
         {
             //!int x;
             case 3:
+                animMask.GetInteger(simonSaysHealth);
                 //TODO Mask Unhappy for a bit and spawn a lot of enemies
                 //! Instantiate enemy * x;
                 //!Play animation
@@ -56,6 +60,9 @@ public class SimonSaysManager : MonoBehaviour
                 break;
             case 1:
                 //TODO Mask mad and spawn even more enemies and/or a boss
+                break;
+            case 0:
+                //TODO Complete loss stuff
                 break;
         }
         simonSaysTimer -= Time.deltaTime;

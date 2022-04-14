@@ -1358,6 +1358,7 @@ MonoBehaviour:
   waitBetweenLights: 0.25
   activeSequence: 
   inputInSequence: 0
+  maskObject: {fileID: 0}
 --- !u!4 &1282377638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1022828031799642968, guid: f02532483c5b57b4692776ed86892f73, type: 3}

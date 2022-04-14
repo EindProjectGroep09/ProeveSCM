@@ -8,7 +8,7 @@ public class EnemyChaseState : EnemyBaseState {
 
     public override void UpdateState(EnemyStateManager enemy){
         //* chase the player 
-        enemy.agent.SetDestination(enemy.player.position);
+        enemy.agent.SetDestination(enemy.currentTarget.position);
 
         if(enemy.isRanged) { 
             //! checks if player is in attack range and switches to ranged attack state
@@ -20,7 +20,7 @@ public class EnemyChaseState : EnemyBaseState {
             enemy.SwitchState(enemy.meleeState);
         }
 
-        if(enemy.player.position.magnitude > enemy.sightRange){
+        if(enemy.currentTarget.position.magnitude > enemy.sightRange){
             enemy.SwitchState(enemy.wanderState);
         }
     }

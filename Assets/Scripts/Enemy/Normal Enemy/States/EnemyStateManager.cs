@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
-using System.Collections;
-
+using UnityEditor;
 
 public class EnemyStateManager : MonoBehaviour{
 
     //these vars are for changing the states 
     public bool isRanged;  //! this is code to make the bool random{ get { return (Random.value > 0.5f); } } 
     [Header("Enemy Settings")]
-    public Transform player;
+    public List<Collider> AllTargetsInRange;
+    public Transform currentTarget; 
     public NavMeshAgent agent;
+
+    public GameObject BulletPrefab;
+    
     public float sightRange, rangedRange, meleeRange, walkPointRange;
     public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
     public float timeBetweenAttacks;
@@ -26,10 +29,8 @@ public class EnemyStateManager : MonoBehaviour{
 
     
     private void Awake(){
-        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-
-  
+        
     }
 
     private void Start(){
@@ -43,6 +44,11 @@ public class EnemyStateManager : MonoBehaviour{
 
     public void Update(){
         currentState.UpdateState(this);
+        AllTargetsInRange.AddRange(Physics.OverlapSphere(transform.position, sightRange, whatIsPlayer));
+
+        currentTarget = SearchForClostestPlayer(AllTargetsInRange);
+
+        Debug.Log("current target: " + currentTarget);
     }
 
     public void SwitchState(EnemyBaseState state){
@@ -60,4 +66,37 @@ public class EnemyStateManager : MonoBehaviour{
         Gizmos.DrawWireSphere(transform.position, walkPointRange);
     }
 
+    private Transform SearchForClostestPlayer(List<Collider> targets){
+        float closestDistance = sightRange;
+        GameObject closestTarget = null;
+        foreach(Collider target in targets){
+            float distance = Vector3.Distance(transform.position, target.gameObject.transform.position);
+
+            if(closestDistance > distance){
+                closestDistance = distance;
+                closestTarget = target.gameObject;
+            }
+        }
+        return closestTarget.transform;
+    }
+
+    public void DestroyGameObject(GameObject obj){
+        Destroy(obj, 3);
+    }
+
 }
+
+
+[CustomEditor(typeof(EnemyStateManager))]
+ public class EnemyStateManagerEditor : Editor
+ {
+   void OnInspectorGUI()
+   {
+     var EnemyStateManager = target as EnemyStateManager;
+ 
+     EnemyStateManager.isRanged = GUILayout.Toggle(EnemyStateManager.isRanged, "isRanged");
+     
+     if(EnemyStateManager.isRanged)
+       EnemyStateManager.BulletPrefab = EditorGUILayout.ObjectField(EnemyStateManager.BulletPrefab,  typeof(GameObject), true);
+   }
+ }

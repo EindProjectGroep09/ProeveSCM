@@ -16,6 +16,7 @@ public class EnemyWanderState : EnemyBaseState {
         whatIsGround = enemy.whatIsGround;
         whatIsPlayer = enemy.whatIsPlayer;
         transform = enemy.transform;
+        enemy.currentTarget = null;
     }
 
     public override void UpdateState(EnemyStateManager enemy){

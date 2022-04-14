@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEditor;
 
 public class EnemyRangedState : EnemyBaseState {
 
@@ -12,18 +13,25 @@ public class EnemyRangedState : EnemyBaseState {
 
         //* stop the enemy from moving and look at the player 
         enemy.agent.SetDestination(enemy.transform.position);
-        enemy.transform.LookAt(enemy.player);
+        enemy.transform.LookAt(enemy.currentTarget);
 
         if(!alreadyAttacked) {
 
             //TODO: enemy ranged attack code 
-
+            GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.transform.position, Quaternion.Euler(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z));
+            enemy.DestroyGameObject(bullet);
+            
             alreadyAttacked = true;
-            // Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
+
+            for(float time = 0; time < 3; time += Time.deltaTime){
+                if(time >= 3){
+                    ResetAttack();
+                }
+            }
             
         }
 
-        if(Vector3.Distance(enemy.transform.position, enemy.player.position) > enemy.rangedRange + 3) enemy.SwitchState(enemy.chaseState);
+        if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.rangedRange + 3) enemy.SwitchState(enemy.chaseState);
         
 
     }
@@ -36,13 +44,19 @@ public class EnemyRangedState : EnemyBaseState {
         alreadyAttacked = false;
     }
 
-    private bool Wait(int seconds){
-        float timeWaited = 0;
-        
-        for(int i = 0; i <= seconds; i++){
-            timeWaited += Time.deltaTime;
-            if(timeWaited >= seconds) return true;
-        } 
-        return false;
-    }
+    
 }
+
+
+[CustomEditor(typeof(EnemyRangedState))]
+ public class EnemyRangedStateEditor : Editor{
+   void OnInspectorGUI(){
+     var EnemyRangedState = target as EnemyRangedState;
+ 
+     EnemyRangedState.flag = GUILayout.Toggle(EnemyRangedState.flag, "Flag");
+     
+     if(EnemyRangedState.flag)
+       EnemyRangedState.i = EditorGUILayout.IntSlider("I field:", EnemyRangedState.i , 1 , 100);
+ 
+   }
+ }

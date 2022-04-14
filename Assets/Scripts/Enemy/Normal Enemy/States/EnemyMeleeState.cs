@@ -11,7 +11,7 @@ public class EnemyMeleeState : EnemyBaseState {
 
         //* stop the enemy from moving and look at the player 
         enemy.agent.SetDestination(enemy.transform.position);
-        enemy.transform.LookAt(enemy.player);
+        enemy.transform.LookAt(enemy.currentTarget);
 
         if(!alreadyAttacked) {
 
@@ -22,7 +22,7 @@ public class EnemyMeleeState : EnemyBaseState {
             
         }
 
-        if(Vector3.Distance(enemy.transform.position, enemy.player.position) > enemy.meleeRange + 3)  enemy.SwitchState(enemy.chaseState);
+        if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.meleeRange + 3)  enemy.SwitchState(enemy.chaseState);
     
     }
 

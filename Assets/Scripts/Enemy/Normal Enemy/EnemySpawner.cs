@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         enemies.Add(NewEnemy);
     }
 
-    private void SpawnWave(int EnemyAmount){
+    public void SpawnWave(int EnemyAmount){
         for (int i = 0; i < EnemyAmount / 2; i++){
             SpawnEnemy(rangedEnemy);
         }

@@ -440,41 +440,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &205496852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4028110811217241031, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
-  m_PrefabInstance: {fileID: 4028110809834615962}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &207179946
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 207179947}
-  m_Layer: 0
-  m_Name: Bullet spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &207179947
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207179946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.016, y: 3.362, z: 1.762}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 205496852}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &379055374
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,6 +2377,18 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 966551550180059654, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 966551550180059654, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 966551550180059654, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 966551550180059654, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.85
       objectReference: {fileID: 0}
@@ -2451,6 +2428,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2253212430049195175, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+      propertyPath: meleeRange
+      value: 5.09
+      objectReference: {fileID: 0}
     - target: {fileID: 9186518944386428518, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
       propertyPath: m_Name
       value: EnemyMelee
@@ -2466,12 +2447,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 207179947, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521541726224178367, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4028110811217241025, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: bulletSpawn
       value: 
-      objectReference: {fileID: 207179947}
+      objectReference: {fileID: 0}
     - target: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: m_Name
       value: EnemyRanged

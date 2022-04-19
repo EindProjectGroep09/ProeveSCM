@@ -13,7 +13,7 @@ public class BulletScript : MonoBehaviour
 		
 	}
 
-	private void CollisionEnter(Collision collision)
+	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{

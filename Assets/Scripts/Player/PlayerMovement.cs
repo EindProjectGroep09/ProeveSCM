@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 movementInput;
     private Vector2 rotateInput;
+    
     [SerializeField]private float speedMovement = 5.0f;
     [SerializeField]private float speedRotate = 100.0f;
     private void Update()

@@ -70,11 +70,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRanged: 0
   currentTarget: {fileID: 0}
+  bulletSpawn: {fileID: 0}
   agent: {fileID: 6411306387988116757}
   BulletPrefab: {fileID: 0}
-  sightRange: 30
+  sightRange: 25
   rangedRange: 0
-  meleeRange: 15
+  meleeRange: 6.86
   walkPointRange: 10
   playerInRangedRange: 0
   playerInMeleeRange: 0
@@ -116,11 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f059a33abdd3c234d99d74732c7672fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f059a33abdd3c234d99d74732c7672fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f059a33abdd3c234d99d74732c7672fb, type: 3}
       propertyPath: m_LocalRotation.w

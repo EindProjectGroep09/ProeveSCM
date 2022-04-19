@@ -9,8 +9,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]private GameObject rangedEnemy;
     [SerializeField]private GameObject meleeEnemy;
 
-    [SerializeField]private float rangedEnemyInterval = 3.5f;
-    [SerializeField]private float meleeEnemyInterval = 10f;
+    // [SerializeField]private float rangedEnemyInterval = 3.5f;
+    // [SerializeField]private float meleeEnemyInterval = 10f;
 
     private List<GameObject> enemies = new List<GameObject>();
     public static EnemySpawner instance;
@@ -20,15 +20,30 @@ public class EnemySpawner : MonoBehaviour
         instance = this;
     }
     void Start(){
-        StartCoroutine(SpawnEnemy(rangedEnemyInterval, rangedEnemy));
-        StartCoroutine(SpawnEnemy(meleeEnemyInterval, meleeEnemy));
+        // StartCoroutineINTER(SpawnEnemy(rangedEnemyInterval, rangedEnemy));
+        // StartCoroutineINTER(SpawnEnemy(meleeEnemyInterval, meleeEnemy));
+
+        SpawnWave(enemiesPerWave);
     }
 
-    private IEnumerator SpawnEnemy(float interval, GameObject enemy){
+    private IEnumerator SpawnEnemyINTER(float interval, GameObject enemy){
         yield return new WaitForSeconds(interval);
         GameObject NewEnemy = Instantiate(enemy, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
         enemies.Add(NewEnemy);
-        StartCoroutine(SpawnEnemy(interval, enemy));
+        StartCoroutine(SpawnEnemyINTER(interval, enemy));
+    }
+    private void SpawnEnemy(GameObject enemy){
+        GameObject NewEnemy = Instantiate(enemy, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+        enemies.Add(NewEnemy);
+    }
+
+    private void SpawnWave(int EnemyAmount){
+        for (int i = 0; i < EnemyAmount / 2; i++){
+            SpawnEnemy(rangedEnemy);
+        }
+        for(int i = 0; i < EnemyAmount / 2; i++){
+            SpawnEnemy(meleeEnemy);
+        }
     }
 
     public void kill_All_Enemies(){

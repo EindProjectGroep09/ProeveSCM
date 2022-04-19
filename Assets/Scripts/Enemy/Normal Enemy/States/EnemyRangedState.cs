@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class EnemyRangedState : EnemyBaseState {
 
@@ -21,12 +22,9 @@ public class EnemyRangedState : EnemyBaseState {
             GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.bulletSpawn.position, Quaternion.Euler(enemy.bulletSpawn.position.x, enemy.bulletSpawn.position.y, enemy.bulletSpawn.position.z));
             alreadyAttacked = true;
             bullet.GetComponent<Rigidbody>().AddForce((enemy.currentTarget.position - enemy.transform.position) * 10, ForceMode.Impulse);
-            // for(float time = 0; time < 3; time += Time.deltaTime){
-            //     if(time >= 3){
-            ResetAttack();
-            //     }
-            // }
-            
+         
+
+            ResetAttack(enemy);
         }
 
         if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.rangedRange + 3) enemy.SwitchState(enemy.chaseState);
@@ -38,7 +36,9 @@ public class EnemyRangedState : EnemyBaseState {
 
     }
 
-    private void ResetAttack(){
+    private async void  ResetAttack(EnemyStateManager enemy){
+        Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.timeBetweenAttacks * 1000);
+        await longRunningTask;
         alreadyAttacked = false;
     }
 

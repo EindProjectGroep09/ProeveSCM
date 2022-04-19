@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
 using UnityEditor;
+using System.Threading.Tasks;
 
 public class EnemyStateManager : MonoBehaviour{
 
@@ -80,6 +81,10 @@ public class EnemyStateManager : MonoBehaviour{
 
     public void DestroyGameObject(GameObject obj){
         Destroy(obj, 3);
+    }
+
+    public async Task LongRunningOperationAsync(int delay){
+        await Task.Delay(delay);
     }
 
 //     #region Editor

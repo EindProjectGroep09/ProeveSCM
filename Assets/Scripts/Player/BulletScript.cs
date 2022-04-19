@@ -20,5 +20,10 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
 		}
+
+		if(collision.gameObject.CompareTag("Player")){
+			Destroy(gameObject);
+			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
+		}
 	}
 }

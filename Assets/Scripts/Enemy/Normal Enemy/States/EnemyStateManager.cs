@@ -8,14 +8,12 @@ public class EnemyStateManager : MonoBehaviour{
     //these vars are for changing the states 
     public bool isRanged;  //! this is code to make the bool random{ get { return (Random.value > 0.5f); } } 
     [Header("Enemy Settings")]
-    public List<Collider> AllTargetsInRange;
-    public Transform currentTarget; 
+    private List<Collider> AllTargetsInRange = new List<Collider>();
+    [HideInInspector] public Transform currentTarget; 
     public NavMeshAgent agent;
-
     public GameObject BulletPrefab;
-    
     public float sightRange, rangedRange, meleeRange, walkPointRange;
-    public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
+    [HideInInspector] public bool playerInRangedRange, playerInMeleeRange, playerInSightRange;
     public float timeBetweenAttacks;
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -45,10 +43,9 @@ public class EnemyStateManager : MonoBehaviour{
     public void Update(){
         currentState.UpdateState(this);
         AllTargetsInRange.AddRange(Physics.OverlapSphere(transform.position, sightRange, whatIsPlayer));
-
+        
+        if(AllTargetsInRange != null)
         currentTarget = SearchForClostestPlayer(AllTargetsInRange);
-
-        Debug.Log("current target: " + currentTarget);
     }
 
     public void SwitchState(EnemyBaseState state){
@@ -84,19 +81,54 @@ public class EnemyStateManager : MonoBehaviour{
         Destroy(obj, 3);
     }
 
+//     #region Editor
+// #if UNITY_EDITOR
+//     [CustomEditor(typeof(EnemyStateManager))]
+//     public class EnemyStateManagerEditor : Editor{
+//         public override void OnInspectorGUI(){
+//             base.OnInspectorGUI();
+//             EnemyStateManager EnemyStateManager = (EnemyStateManager)target;
+//             GUILayoutOption[] Options = {GUILayout.MaxWidth(180f), GUILayout.MinWidth(180f)};
+            
+//             EditorGUILayout.BeginHorizontal();
+//             GUILayout.Label("Current Target");
+//             EnemyStateManager.currentTarget = (Transform)EditorGUILayout.ObjectField(EnemyStateManager.currentTarget,  typeof(Transform), Options);
+//             EditorGUILayout.EndHorizontal();
+
+//             EditorGUILayout.BeginHorizontal();
+//             GUILayout.Label("Agent");
+//             EnemyStateManager.agent = (NavMeshAgent)EditorGUILayout.ObjectField(EnemyStateManager.agent,  typeof(NavMeshAgent), Options);
+//             EditorGUILayout.EndHorizontal();
+
+//             EditorGUILayout.BeginHorizontal();
+//             GUILayout.Label("Walk Point Range");
+//             EnemyStateManager.walkPointRange = EditorGUILayout.FloatField(EnemyStateManager.walkPointRange, Options);
+//             EditorGUILayout.EndHorizontal();
+
+//             EditorGUILayout.BeginHorizontal();
+//             GUILayout.Label("Time Between Attacks");
+//             EnemyStateManager.timeBetweenAttacks = EditorGUILayout.FloatField(EnemyStateManager.timeBetweenAttacks, Options);
+//             EditorGUILayout.EndHorizontal();
+
+//             if(EnemyStateManager.isRanged){
+//                 EditorGUILayout.BeginHorizontal();
+//                 GUILayout.Label("Bullet Prefab");
+//                 EnemyStateManager.BulletPrefab = (GameObject)EditorGUILayout.ObjectField(EnemyStateManager.BulletPrefab,  typeof(GameObject), Options);
+//                 EditorGUILayout.EndHorizontal();
+
+//                 EditorGUILayout.BeginHorizontal();
+//                 GUILayout.Label("Ranged Range");
+//                 EnemyStateManager.rangedRange = EditorGUILayout.FloatField(EnemyStateManager.rangedRange, Options);
+//                 EditorGUILayout.EndHorizontal();
+//             }else{
+//                 EditorGUILayout.BeginHorizontal();
+//                 GUILayout.Label("Melee Range");
+//                 EnemyStateManager.meleeRange = EditorGUILayout.FloatField(EnemyStateManager.meleeRange, Options);
+//                 EditorGUILayout.EndHorizontal();
+//             }
+
+//         }
+//     }
+// #endif
+//     #endregion
 }
-
-
-// [CustomEditor(typeof(EnemyStateManager))]
-//  public class EnemyStateManagerEditor : Editor
-//  {
-//    void OnInspectorGUI()
-//    {
-//      var EnemyStateManager = target as EnemyStateManager;
- 
-//      EnemyStateManager.isRanged = GUILayout.Toggle(EnemyStateManager.isRanged, "isRanged");
-     
-//      if(EnemyStateManager.isRanged)
-//        EnemyStateManager.BulletPrefab = EditorGUILayout.ObjectField(EnemyStateManager.BulletPrefab,  typeof(Object) );
-//    }
-//  }

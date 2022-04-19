@@ -18,16 +18,15 @@ public class EnemyRangedState : EnemyBaseState {
         if(!alreadyAttacked) {
 
             //TODO: enemy ranged attack code 
+            Debug.Log("i shot the serif");
             GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.transform.position, Quaternion.Euler(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z));
-            enemy.DestroyGameObject(bullet);
-            
             alreadyAttacked = true;
-
-            for(float time = 0; time < 3; time += Time.deltaTime){
-                if(time >= 3){
-                    ResetAttack();
-                }
-            }
+            //bullet.
+            // for(float time = 0; time < 3; time += Time.deltaTime){
+            //     if(time >= 3){
+            ResetAttack();
+            //     }
+            // }
             
         }
 
@@ -46,17 +45,3 @@ public class EnemyRangedState : EnemyBaseState {
 
     
 }
-
-
-[CustomEditor(typeof(EnemyRangedState))]
- public class EnemyRangedStateEditor : Editor{
-   void OnInspectorGUI(){
-     var EnemyRangedState = target as EnemyRangedState;
- 
-     EnemyRangedState.flag = GUILayout.Toggle(EnemyRangedState.flag, "Flag");
-     
-     if(EnemyRangedState.flag)
-       EnemyRangedState.i = EditorGUILayout.IntSlider("I field:", EnemyRangedState.i , 1 , 100);
- 
-   }
- }

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-	void Start()
+	private void Start()
 	{
 		Destroy(gameObject, 3);
 	}
 
-	void CollisionEnter(Collision collision)
+	private void Update(){
+		
+	}
+
+	private void CollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{

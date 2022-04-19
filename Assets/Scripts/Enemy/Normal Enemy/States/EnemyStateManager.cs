@@ -9,7 +9,8 @@ public class EnemyStateManager : MonoBehaviour{
     public bool isRanged;  //! this is code to make the bool random{ get { return (Random.value > 0.5f); } } 
     [Header("Enemy Settings")]
     private List<Collider> AllTargetsInRange = new List<Collider>();
-    [HideInInspector] public Transform currentTarget; 
+    [HideInInspector] public Transform currentTarget;
+    public Transform bulletSpawn; 
     public NavMeshAgent agent;
     public GameObject BulletPrefab;
     public float sightRange, rangedRange, meleeRange, walkPointRange;

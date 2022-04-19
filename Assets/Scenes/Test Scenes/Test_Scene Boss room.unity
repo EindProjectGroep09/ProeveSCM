@@ -176,7 +176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &87823646
 Transform:
   m_ObjectHideFlags: 0
@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesPerWave: 0
-  rangedEnemy: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
-  meleeEnemy: {fileID: 2910987064934381845, guid: 4fc85bccff2cb434baa10996a8b2d41b, type: 3}
+  rangedEnemy: {fileID: 0}
+  meleeEnemy: {fileID: 0}
   rangedEnemyInterval: 3.5
   meleeEnemyInterval: 10
 --- !u!1 &95116581
@@ -441,6 +441,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &205496852 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4028110811217241031, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
+  m_PrefabInstance: {fileID: 4028110809834615962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &207179946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 207179947}
+  m_Layer: 0
+  m_Name: Bullet spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &207179947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207179946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.016, y: 3.362, z: 1.762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 205496852}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &250487938
 PrefabInstance:
@@ -2409,6 +2444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4028110811217241025, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
+      propertyPath: bulletSpawn
+      value: 
+      objectReference: {fileID: 207179947}
     - target: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: m_Name
       value: EnemyRanged

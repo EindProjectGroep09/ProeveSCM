@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 
 public class EnemyRangedState : EnemyBaseState {
 
@@ -19,9 +18,9 @@ public class EnemyRangedState : EnemyBaseState {
 
             //TODO: enemy ranged attack code 
             Debug.Log("i shot the serif");
-            GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.transform.position, Quaternion.Euler(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z));
+            GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.bulletSpawn.position, Quaternion.Euler(enemy.bulletSpawn.position.x, enemy.bulletSpawn.position.y, enemy.bulletSpawn.position.z));
             alreadyAttacked = true;
-            //bullet.
+            bullet.GetComponent<Rigidbody>().AddForce(Vector3.forward * 10, ForceMode.Impulse);
             // for(float time = 0; time < 3; time += Time.deltaTime){
             //     if(time >= 3){
             ResetAttack();

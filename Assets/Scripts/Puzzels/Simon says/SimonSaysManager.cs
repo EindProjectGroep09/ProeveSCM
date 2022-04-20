@@ -34,12 +34,12 @@ public class SimonSaysManager : MonoBehaviour
     private int simonSaysHealth = 3;
 
     private AudioController audioController;
-    [SerializeField] GameObject maskObject;
+   //[SerializeField] GameObject maskObject;
     private Animator animMask;
     
     private void Start()
     {
-        animMask = maskObject.GetComponent<Animator>();
+        //animMask = maskObject.GetComponent<Animator>();
         audioController = GameObject.FindObjectOfType<AudioController>();
         StartGame();
     }
@@ -49,7 +49,7 @@ public class SimonSaysManager : MonoBehaviour
         {
             //!int x;
             case 3:
-                animMask.GetInteger(simonSaysHealth);
+                //animMask.GetInteger(simonSaysHealth);
                 //TODO Mask Unhappy for a bit and spawn a lot of enemies
                 //! Instantiate enemy * x;
                 //!Play animation
@@ -176,13 +176,13 @@ public class SimonSaysManager : MonoBehaviour
             }
             else
             {
-                audioController.gameSounds[4].Play(); 
+               audioController.gameSounds[4].Play(); 
 
+                StartCoroutine(LosSequence());
                 StartGame(); //! delay this
                 gameActive = false;
                 //TODO Make a lose state        
                 //audioController.gameSounds[4].Play();
-                StartCoroutine(LosSequence());
                  
 
             }
@@ -194,8 +194,8 @@ public class SimonSaysManager : MonoBehaviour
         audioController.gameSounds[13].Play();
 
         gameTimer += 30f;
-        yield return new WaitForSeconds(2f);
         simonSaysHealth -= 1;
+        yield return new WaitForSeconds(2f);
     }
 
 

@@ -11,25 +11,21 @@ public class AudioController : MonoBehaviour
     0. Music
     1. Random Circus Sounds
     2. Button - Press
-    3. Button Depress?
-    4. Door opening
-    5. Buzzer - Sequence Fail
+    3. Door opening
+    4. Buzzer - Sequence Fail
     #Enemy
-    6. Movement
-    7. Attack
-    8. Damage Taken
-    9. Dying
+    5. Movement
+    6. Attack
+    7. Damage Taken
+    8. Dying
     #Player
-    10. Running
-    11. Damage Taken
-    12. Dying
+    9. Running
+    10. Damage Taken
+    11. Dying
     #Gun
-    13. Shoot
-    14. Hit (Not yet)
+    12. Shoot
     #Fail Sequence
-    15. Lights Out
-    16.  Lights On
-    17. Mask - Laughing
+    13. Mask Laughing
      */
     public AudioSource[] gameSounds = new AudioSource[18];
 

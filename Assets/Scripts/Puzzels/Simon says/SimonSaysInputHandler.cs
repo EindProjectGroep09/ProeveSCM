@@ -19,7 +19,7 @@ public class SimonSaysInputHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            audioController.gameSounds[9].Play();
+            //audioController.gameSounds[9].Play();
             SSM.buttonPressed[SSM.activeSequence[SSM.inputInSequence]].material = SSM.buttonColors[SSM.activeSequence[SSM.inputInSequence]];
         }
     }

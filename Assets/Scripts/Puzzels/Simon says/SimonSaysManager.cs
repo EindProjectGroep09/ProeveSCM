@@ -179,7 +179,6 @@ public class SimonSaysManager : MonoBehaviour
                audioController.gameSounds[4].Play(); 
 
                 StartCoroutine(LosSequence());
-                StartGame(); //! delay this
                 gameActive = false;
                 //TODO Make a lose state        
                 //audioController.gameSounds[4].Play();
@@ -196,6 +195,7 @@ public class SimonSaysManager : MonoBehaviour
         gameTimer += 30f;
         simonSaysHealth -= 1;
         yield return new WaitForSeconds(2f);
+        StartGame(); 
     }
 
 

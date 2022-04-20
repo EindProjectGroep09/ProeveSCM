@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (movementInput.x > 0 || movementInput.y > 0)
+        if (movementInput.x != 0 || movementInput.y != 0)
         {
             audioController.gameSounds[9].Play();
         }

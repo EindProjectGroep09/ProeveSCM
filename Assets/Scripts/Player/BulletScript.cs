@@ -12,7 +12,11 @@ public class BulletScript : MonoBehaviour
 		Destroy(gameObject, 3);
 	}
 
-	void OnCollisionEnter(Collision collision)
+	private void Update(){
+
+	}
+
+	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
@@ -20,9 +24,14 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
 		}
-        else
-        {
+
+		if(collision.gameObject.CompareTag("Player")){
 			Destroy(gameObject);
-        }
+			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 }

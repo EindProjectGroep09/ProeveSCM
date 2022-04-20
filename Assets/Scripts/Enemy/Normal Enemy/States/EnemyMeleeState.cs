@@ -2,33 +2,31 @@ using UnityEngine;
 
 public class EnemyMeleeState : EnemyBaseState {
 
-    
     bool alreadyAttacked;
     public override void EnterState(EnemyStateManager enemy){
-
+        Debug.Log("Entered Melee state");
     }
 
     public override void UpdateState(EnemyStateManager enemy){
 
         //* stop the enemy from moving and look at the player 
         enemy.agent.SetDestination(enemy.transform.position);
-        enemy.transform.LookAt(enemy.player);
+        enemy.transform.LookAt(enemy.currentTarget);
 
         if(!alreadyAttacked) {
 
             //TODO: enemy melee attack code 
 
             alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
+            // Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
+            
         }
 
-        if(enemy.player.position.magnitude > enemy.meleeRange){
-            enemy.SwitchState(enemy.chaseState);
-        }
+        if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.meleeRange + 3)  enemy.SwitchState(enemy.chaseState);
     
     }
 
-    public override void OnCollisionEnter(EnemyStateManager enemy, Collision collider){
+    public override void CollisionEnter(EnemyStateManager enemy, Collision collider){
 
     }
 

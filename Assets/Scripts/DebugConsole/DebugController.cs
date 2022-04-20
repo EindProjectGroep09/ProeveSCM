@@ -13,9 +13,10 @@ public class DebugController : MonoBehaviour
     string input;
 
     public static DebugCommand KILL_ALL_ENEMIES;
-    public static DebugCommand<int, Vector3> SPAWN_ENEMIES;
-    public static DebugCommand HELP;
+    public static DebugCommand<int> SPAWN_WAVE;
+
     public static DebugCommand SHOWSTATS;
+    public static DebugCommand HELP;
 
     public List<object> commandList;
 
@@ -37,8 +38,8 @@ public class DebugController : MonoBehaviour
             EnemySpawner.instance.kill_All_Enemies();
         });
 
-        SPAWN_ENEMIES = new DebugCommand<int, Vector3>("spawn_enemies", "spawns enemies based in the inputed number", "spawn_enemies <enemy amount> <Xpos, Ypos, Zpos>", (x, y) => {
-            //call the spawn_enemies function 
+        SPAWN_WAVE = new DebugCommand<int>("spawn_enemies", "spawns enemies based in the inputed number", "spawn_enemies <enemy amount>", (x) => {
+            EnemySpawner.instance.SpawnWave(x);
         });
 
         SHOWSTATS = new DebugCommand("show_stats", "show statistics of the game like fps it works like a toggle", "show_stats", ()=>{
@@ -49,9 +50,11 @@ public class DebugController : MonoBehaviour
             showHelp = true;
         });
 
+
+
         commandList = new List<object> {
             KILL_ALL_ENEMIES,
-            SPAWN_ENEMIES,
+            SPAWN_WAVE,
             SHOWSTATS,
             HELP
         };
@@ -104,8 +107,8 @@ public class DebugController : MonoBehaviour
                 if(commandList[i] as DebugCommand != null) {
                     (commandList[i] as DebugCommand).Invoke();
                 }
-                else if(commandList[i] as DebugCommand<int, Vector3> != null) {
-                    (commandList[i] as DebugCommand<int, Vector3>).Invoke(int.Parse(properties[1]), new Vector3(float.Parse(properties[2]), float.Parse(properties[3]), float.Parse(properties[4])));
+                else if(commandList[i] as DebugCommand<int> != null) {
+                    (commandList[i] as DebugCommand<int>).Invoke(int.Parse(properties[1]));
                 }
             }
         }

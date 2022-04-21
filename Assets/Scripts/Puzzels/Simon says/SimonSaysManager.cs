@@ -46,29 +46,7 @@ public class SimonSaysManager : MonoBehaviour
     }
     private void Update()
     {
-        switch (simonSaysHealth)
-        {
-            //!int x;
-            case 3:
-                animMask.Play("Anim_mask_happy");
-                //TODO Mask Unhappy for a bit and spawn a lot of enemies
-                //! Instantiate enemy * x;
-                //!Play animation
-                //! Timer goes down
-                break;
-            case 2:
-                animMask.Play("Anim_mask_neutral");
-                //TODO Mask stays unhappy and spawn more enemies
-                break;
-            case 1:
-                animMask.Play("Anim_mask_angry");
-                //TODO Mask mad and spawn even more enemies and/or a boss
-                break;
-            case 0:
-                animMask.Play("Anim_mask_outburst");
-                //TODO Complete loss stuff
-                break;
-        }
+
         simonSaysTimer -= Time.deltaTime;
         gameTimer += Time.deltaTime;
 

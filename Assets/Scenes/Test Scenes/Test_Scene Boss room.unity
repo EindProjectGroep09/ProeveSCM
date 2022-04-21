@@ -544,6 +544,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02545987, y: 0.025459865, z: 0.003}
   m_Center: {x: 0.00015691482, y: 0.000043746073, z: 0.0023804759}
+--- !u!1 &232309030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232309032}
+  - component: {fileID: 232309031}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &232309031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232309030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ab243354853f94fadd0ed6badceb13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPerWave: 0
+  rangedEnemy: {fileID: 828783575}
+  meleeEnemy: {fileID: 886386429}
+--- !u!4 &232309032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232309030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.611156, y: -118.78931, z: -264.03128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271931674
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +638,7 @@ MonoBehaviour:
   waitBetweenLights: 0.25
   activeSequence: 
   inputInSequence: 0
+  maskObject: {fileID: 0}
 --- !u!4 &271931676
 Transform:
   m_ObjectHideFlags: 0
@@ -1276,6 +1323,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -0.02, y: -0.02, z: -0.01}
   m_Center: {x: 0, y: 0, z: 0.002}
+--- !u!1 &828783575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
+  m_PrefabInstance: {fileID: 4028110809834615962}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &886386429 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9186518944386428518, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+  m_PrefabInstance: {fileID: 3333531189548489922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &944409624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2283,38 @@ PrefabInstance:
       propertyPath: playerInput.m_Name
       value: Player Input
       objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.108
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805685919729080101, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: 3056a48e-0738-477c-b62a-fe2efca56303
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Movement/Shoot[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows2/leftShoulder,/XInputControllerWindows/rightShoulder,/XInputControllerWindows2/rightShoulder,/Mouse/leftButton]
+      objectReference: {fileID: 0}
     - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
       propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -2233,6 +2322,38 @@ PrefabInstance:
     - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
       propertyPath: m_DeviceRegainedEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1838549878}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerShoot, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4005847228008026325, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946042104562677613, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.52
       objectReference: {fileID: 0}
     - target: {fileID: 6007015825994900883, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
       propertyPath: m_Name
@@ -2414,6 +2535,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfButton: 3
+--- !u!114 &1838549878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1254308946025931540, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+  m_PrefabInstance: {fileID: 1707610439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65300cf38e3a6b9439cab80d9f076f19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1883163194
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,6 +3115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: prf_mask_01
       objectReference: {fileID: 0}
+    - target: {fileID: 999047214312434928, guid: f02532483c5b57b4692776ed86892f73, type: 3}
+      propertyPath: m_TagString
+      value: MaskBoss
+      objectReference: {fileID: 0}
     - target: {fileID: 3737555767490689442, guid: f02532483c5b57b4692776ed86892f73, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3144,6 +3280,10 @@ PrefabInstance:
     - target: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: m_Name
       value: EnemyRanged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4028110811217241031, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
       propertyPath: m_RootOrder

@@ -18,11 +18,12 @@ public class BulletScript : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		Debug.Log(collision.gameObject);
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
 			audioController.gameSounds[7].Play();
-			Destroy(gameObject);
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
+			Destroy(gameObject);
 		}
 
 		if(collision.gameObject.CompareTag("Player")){

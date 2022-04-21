@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 426391160337229184}
   - component: {fileID: 1095096814826046207}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,8 +59,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99b7a829a5f2af64cb96644891d9235c, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7900648513712292957
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9142651235151167596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.33010638, y: 0.33010638, z: 0.32810637}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8815309616037065346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6ffc7040e81a1d42a8132fa3abb40b9, type: 3}
+--- !u!1 &9142651235151167596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 339878526662587118, guid: c6ffc7040e81a1d42a8132fa3abb40b9, type: 3}
+  m_PrefabInstance: {fileID: 8815309616037065346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3979728426667776872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5578992955667507690, guid: c6ffc7040e81a1d42a8132fa3abb40b9, type: 3}

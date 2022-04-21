@@ -33,13 +33,14 @@ public class SimonSaysManager : MonoBehaviour
     private float gameTimer;
     private int simonSaysHealth = 3;
 
+   [SerializeField] GameObject maskObject;
     private AudioController audioController;
-   //[SerializeField] GameObject maskObject;
     private Animator animMask;
     
     private void Start()
     {
-        //animMask = maskObject.GetComponent<Animator>();
+        maskObject = GameObject.FindGameObjectWithTag("MaskBoss");
+        animMask = maskObject.GetComponent<Animator>();
         audioController = GameObject.FindObjectOfType<AudioController>();
         StartGame();
     }
@@ -49,19 +50,22 @@ public class SimonSaysManager : MonoBehaviour
         {
             //!int x;
             case 3:
-                //animMask.GetInteger(simonSaysHealth);
+                animMask.Play("Anim_mask_happy");
                 //TODO Mask Unhappy for a bit and spawn a lot of enemies
                 //! Instantiate enemy * x;
                 //!Play animation
                 //! Timer goes down
                 break;
             case 2:
+                animMask.Play("Anim_mask_neutral");
                 //TODO Mask stays unhappy and spawn more enemies
                 break;
             case 1:
+                animMask.Play("Anim_mask_angry");
                 //TODO Mask mad and spawn even more enemies and/or a boss
                 break;
             case 0:
+                animMask.Play("Anim_mask_outburst");
                 //TODO Complete loss stuff
                 break;
         }
@@ -194,10 +198,41 @@ public class SimonSaysManager : MonoBehaviour
 
         gameTimer += 30f;
         simonSaysHealth -= 1;
+        switch (simonSaysHealth)
+        {
+            //!int x;
+            case 3:
+                animMask.Play("Anim_mask_happy");
+                EnemySpawner.instance.SpawnWave(3);
+                //TODO Mask Unhappy for a bit and spawn a lot of enemies
+                //! Instantiate enemy * x;
+                //!Play animation
+                //! Timer goes down
+                break;
+            case 2:
+                animMask.Play("Anim_mask_neutral"); 
+                EnemySpawner.instance.SpawnWave(5); 
+                //TODO Mask stays unhappy and spawn more enemies
+                break;
+            case 1:
+                animMask.Play("Anim_mask_angry");
+                EnemySpawner.instance.SpawnWave(8);
+                //TODO Mask mad and spawn even more enemies and/or a boss
+                break;
+            case 0:
+                StartCoroutine(GameLostSequence());
+                //TODO Complete loss stuff
+                break;
+        }
         yield return new WaitForSeconds(2f);
         StartGame(); 
     }
 
+    private IEnumerator GameLostSequence()
+    {
+        animMask.Play("Anim_mask_outburst");
+        yield return new WaitForSeconds(1f);
+    }
 
     private void OnGUI()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]private int enemiesPerWave;
+    [SerializeField]private int enemiesPerWave; //10 te veel
 
     [SerializeField]private GameObject rangedEnemy;
     [SerializeField]private GameObject meleeEnemy;

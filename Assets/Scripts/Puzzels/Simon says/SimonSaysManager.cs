@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SimonSaysManager : MonoBehaviour
 {
 
@@ -210,6 +210,7 @@ public class SimonSaysManager : MonoBehaviour
     {
         animMask.Play("Anim_mask_outburst");
         yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Main");
     }
 
     private void OnGUI()

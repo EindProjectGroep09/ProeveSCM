@@ -10,13 +10,18 @@ public class PlayerMovement : MonoBehaviour
     private float speedMovement = 5.0f;
     private float speedRotate = 100.0f;
 
-    AudioController audioController;
+    private Animator playerAnim;
+    private AudioController audioController;
     private void Start()
     {
+        playerAnim = GetComponent<Animator>();
         audioController = GameObject.FindObjectOfType<AudioController>();
     }
     private void Update()
     {
+        playerAnim.SetFloat("MovementX", movementInput.x);
+        playerAnim.SetFloat("MovementY", movementInput.y);
+
         transform.localPosition -= new Vector3(movementInput.x, 0, movementInput.y);
        
         transform.Rotate(new Vector3(0, rotateInput.x, 0) * (speedRotate * Time.deltaTime));

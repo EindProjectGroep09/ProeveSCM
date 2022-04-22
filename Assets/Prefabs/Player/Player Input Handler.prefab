@@ -71,8 +71,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c2bab16d-a4d0-47d6-bbd8-6a1131dbc391
-    m_ActionName: Movement/Move[/XInputControllerWindows/leftStick,/SwitchProControllerHID/leftStick,/SwitchProControllerHID1/leftStick]
+    m_ActionId: 22248c65-17ae-4dbb-9759-424511d26318
+    m_ActionName: Movement/Move[/XInputControllerWindows/leftStick,/SwitchProControllerHID/leftStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2767994850637398918}
@@ -87,8 +87,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cfdcd4a2-67a7-455c-85a4-b228851a8a00
-    m_ActionName: Movement/Rotate[/XInputControllerWindows/rightStick,/SwitchProControllerHID/rightStick,/SwitchProControllerHID1/rightStick]
+    m_ActionId: 1fff7489-5445-4b46-b021-3608b2fc3169
+    m_ActionName: Movement/Rotate[/XInputControllerWindows/rightStick,/SwitchProControllerHID/rightStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2767994850637398918}
@@ -103,8 +103,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3056a48e-0738-477c-b62a-fe2efca56303
-    m_ActionName: Movement/Shoot[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+    m_ActionId: 0eb822c8-c1b2-40d2-8b84-fdd3175a1f01
+    m_ActionName: Movement/Shoot[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement

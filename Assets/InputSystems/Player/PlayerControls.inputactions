@@ -3,12 +3,12 @@
     "maps": [
         {
             "name": "Movement",
-            "id": "36f8eae7-1c96-494f-bda7-7b3f60f44134",
+            "id": "c8f03061-df4d-4003-839b-cfe418979294",
             "actions": [
                 {
                     "name": "Move",
                     "type": "Value",
-                    "id": "c2bab16d-a4d0-47d6-bbd8-6a1131dbc391",
+                    "id": "22248c65-17ae-4dbb-9759-424511d26318",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "Rotate",
                     "type": "Value",
-                    "id": "cfdcd4a2-67a7-455c-85a4-b228851a8a00",
+                    "id": "1fff7489-5445-4b46-b021-3608b2fc3169",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -26,7 +26,7 @@
                 {
                     "name": "Shoot",
                     "type": "Button",
-                    "id": "3056a48e-0738-477c-b62a-fe2efca56303",
+                    "id": "0eb822c8-c1b2-40d2-8b84-fdd3175a1f01",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -36,132 +36,165 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "a85e4318-85bf-464b-aa90-fb1eb49a6d4f",
+                    "id": "eb15e51b-d37a-4e1c-8fea-2b93c6283f93",
                     "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "0eace87e-7842-411b-9366-a27d8761852e",
+                    "id": "7ae019fb-1200-4685-9907-c7ee5481778a",
                     "path": "<XInputController>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b75e89de-ef51-4b60-a080-591fdb58643f",
+                    "id": "4ef57fe9-7ead-42dc-8127-8f153133649e",
                     "path": "<SwitchProControllerHID>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "779cd47d-fa1f-4dcf-8b7d-37f61eab00e9",
+                    "id": "5a967902-18c0-431b-a939-cf6f1491c3b9",
                     "path": "<XInputController>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e5c538ab-eae5-4c00-b190-dde92117abdc",
+                    "id": "8913d77f-23d7-48f0-8489-93925d60e264",
                     "path": "<DualShockGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "36684e8d-844a-4e88-80aa-0c7623a9bc61",
+                    "id": "d9d65287-3b76-4a4c-9e89-ef078290fd71",
                     "path": "<SwitchProControllerHID>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8a648ed1-9ce0-4806-af03-4e20a9dda36d",
+                    "id": "09ee99d5-88f4-4bb6-aea8-a0631749f035",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3032c86c-98c9-4e60-a1bf-aaae9fb643e1",
                     "path": "<XboxOneGampadiOS>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "254db224-5b7b-4fb8-b509-13cb9e0ccb48",
+                    "id": "8750aa71-a113-4253-b4ad-5e5f8b50d8e9",
                     "path": "<XboxOneGamepadAndroid>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "fa4591bb-48f7-4de7-bb09-cde4959127d6",
+                    "id": "a757fd5a-2b27-4be8-be04-7210b54930bb",
                     "path": "<XInputController>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "076bbc82-2ae8-457d-86eb-219d4e98375f",
+                    "id": "6efc3999-5798-4cac-b160-36f2067aca14",
+                    "path": "<SwitchProControllerHID>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2d27ae22-3757-4f20-ab55-034b04d6b21c",
                     "path": "<XboxOneGampadiOS>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c0b2128f-335d-4b00-af74-3a006d7e0d3e",
+                    "id": "7e1c203c-76a5-49f8-8dd6-daf3a8f3a3e3",
                     "path": "<XboxOneGamepadAndroid>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "7ea2df35-3b40-47da-b6e2-10cddf77925e",
+                    "id": "70cfdebf-e683-456f-8087-9c40088d8099",
                     "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2bb257af-71e2-45d0-8d9f-5a5f067dbfaf",
+                    "path": "<SwitchProControllerHID>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -169,43 +202,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "pc",
-            "bindingGroup": "pc",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Controller",
-            "bindingGroup": "Controller",
-            "devices": [
-                {
-                    "devicePath": "<DualShockGamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<SwitchProControllerHID>",
-                    "isOptional": false,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<XInputController>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }

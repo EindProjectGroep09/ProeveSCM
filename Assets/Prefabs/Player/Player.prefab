@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6007015825994900883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.13, y: 16.2, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 208025904268989537}
@@ -78,10 +78,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65300cf38e3a6b9439cab80d9f076f19, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   bulletPos: {fileID: 1805685919729080101}
   bullet: {fileID: 6284790586572459419, guid: 02697a426da7b2d4fa1ff4a15c41465d, type: 3}
+  playerInput:
+    m_Name: Player Input
+    m_Id: 14931456-685a-4ddd-ad6b-9357fd17d9a9
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &5382176994357320122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,8 +98,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31e3d9023d907c04dbecf6a3e34d81d1, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 45
 --- !u!114 &779398957620877749
 MonoBehaviour:
@@ -105,10 +111,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0d78a5e2d0a92c4f998867ccf8ff866, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
-  speedMovement: 5
-  speedRotate: 100
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4005847228008026325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,41 +123,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 319e43a2fa0f90a4095c2d50a9cd9fa7, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 779398957620877749}
-        m_TargetAssemblyTypeName:
-        m_MethodName:
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName:
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument:
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_DeviceRegainedEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 779398957620877749}
-        m_TargetAssemblyTypeName:
-        m_MethodName:
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName:
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument:
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -169,7 +149,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: c2bab16d-a4d0-47d6-bbd8-6a1131dbc391
@@ -185,17 +165,17 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument:
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: cfdcd4a2-67a7-455c-85a4-b228851a8a00
     m_ActionName: Movement/Rotate[/Mouse/delta/left,/Mouse/delta/up,/Mouse/delta/right,/Mouse/delta/down]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f454b8b0-dd08-4bc1-aa9f-09b8af886195
-    m_ActionName: Movement/Shoot[/Mouse/leftButton]
+    m_ActionId: 3056a48e-0738-477c-b62a-fe2efca56303
+    m_ActionName: Movement/Shoot[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder,/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme:
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -344,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8519cf9de5b6c5441a9f17e45f345e1d, type: 3}
       propertyPath: m_Materials.Array.data[0]
-      value:
+      value: 
       objectReference: {fileID: 2100000, guid: a0fda70a1afb282428d913719efa8126, type: 2}
     - target: {fileID: 919132149155446097, guid: 8519cf9de5b6c5441a9f17e45f345e1d, type: 3}
       propertyPath: m_Name

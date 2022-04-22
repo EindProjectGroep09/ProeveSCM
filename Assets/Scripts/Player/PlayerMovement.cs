@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log("I exist");
         if (movementInput.x != 0 || movementInput.y != 0)
         {
             audioController.gameSounds[9].Play();

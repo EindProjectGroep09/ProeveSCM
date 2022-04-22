@@ -9,7 +9,7 @@ public class EnemyStateManager : MonoBehaviour{
     //these vars are for changing the states 
     public bool isRanged;  //! this is code to make the bool random{ get { return (Random.value > 0.5f); } } 
     [Header("Enemy Settings")]
-    private List<Collider> AllTargetsInRange = new List<Collider>();
+    [SerializeField] private List<Collider> AllTargetsInRange = new List<Collider>();
     [HideInInspector] public Transform currentTarget;
     public Transform bulletSpawn; 
     public NavMeshAgent agent;
@@ -45,8 +45,8 @@ public class EnemyStateManager : MonoBehaviour{
     public void Update(){
         currentState.UpdateState(this);
         AllTargetsInRange.AddRange(Physics.OverlapSphere(transform.position, sightRange, whatIsPlayer));
-        
-        if(AllTargetsInRange != null)
+
+        if(AllTargetsInRange.Count != 0)
         currentTarget = SearchForClostestPlayer(AllTargetsInRange);
     }
 
@@ -68,12 +68,15 @@ public class EnemyStateManager : MonoBehaviour{
     private Transform SearchForClostestPlayer(List<Collider> targets){
         float closestDistance = sightRange;
         GameObject closestTarget = null;
-        foreach(Collider target in targets){
-            float distance = Vector3.Distance(transform.position, target.gameObject.transform.position);
 
-            if(closestDistance > distance){
-                closestDistance = distance;
-                closestTarget = target.gameObject;
+        if(targets != null){
+            foreach(Collider target in targets){
+                float distance = Vector3.Distance(transform.position, target.gameObject.transform.position);
+
+                if(closestDistance > distance){
+                    closestDistance = distance;
+                    closestTarget = target.gameObject;
+                }
             }
         }
         return closestTarget.transform;

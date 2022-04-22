@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]private int enemiesPerWave; //10 te veel
+    [SerializeField]private int enemiesPerWave;
 
     [SerializeField]private GameObject rangedEnemy;
     [SerializeField]private GameObject meleeEnemy;
@@ -22,8 +22,7 @@ public class EnemySpawner : MonoBehaviour
     void Start(){
         // StartCoroutineINTER(SpawnEnemy(rangedEnemyInterval, rangedEnemy));
         // StartCoroutineINTER(SpawnEnemy(meleeEnemyInterval, meleeEnemy));
-
-        SpawnWave(enemiesPerWave);
+        StartCoroutine(SpawnWave(enemiesPerWave));
     }
 
     private IEnumerator SpawnEnemyINTER(float interval, GameObject enemy){
@@ -37,13 +36,14 @@ public class EnemySpawner : MonoBehaviour
         enemies.Add(NewEnemy);
     }
 
-    public void SpawnWave(int EnemyAmount){
-        for (int i = 0; i < EnemyAmount / 2; i++){
+    public IEnumerator SpawnWave(int EnemyAmount){
+        yield return new WaitForSeconds(2);
+        for (int i = 0; i < EnemyAmount; i++){
             SpawnEnemy(rangedEnemy);
         }
-        for(int i = 0; i < EnemyAmount / 2; i++){
-            SpawnEnemy(meleeEnemy);
-        }
+        // for(int i = 0; i < EnemyAmount / 2; i++){
+        //     SpawnEnemy(meleeEnemy);
+        // }
     }
 
     public void kill_All_Enemies(){

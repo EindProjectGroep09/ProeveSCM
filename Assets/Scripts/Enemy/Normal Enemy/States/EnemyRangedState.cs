@@ -27,8 +27,10 @@ public class EnemyRangedState : EnemyBaseState {
             ResetAttack(enemy);
         }
 
-        if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.rangedRange + 3) enemy.SwitchState(enemy.chaseState);
-        
+        if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.rangedRange + 3){
+            Debug.Log("switching state to chase state");
+            enemy.SwitchState(enemy.chaseState);
+        }
 
     }
 

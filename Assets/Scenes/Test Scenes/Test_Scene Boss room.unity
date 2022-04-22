@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ab243354853f94fadd0ed6badceb13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesPerWave: 0
+  enemiesPerWave: 5
   rangedEnemy: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
   meleeEnemy: {fileID: 9186518944386428518, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
 --- !u!1 &95116581
@@ -544,52 +544,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.02545987, y: 0.025459865, z: 0.003}
   m_Center: {x: 0.00015691482, y: 0.000043746073, z: 0.0023804759}
---- !u!1 &232309030
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 232309032}
-  - component: {fileID: 232309031}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &232309031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232309030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22ab243354853f94fadd0ed6badceb13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemiesPerWave: 0
-  rangedEnemy: {fileID: 0}
-  meleeEnemy: {fileID: 0}
---- !u!4 &232309032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232309030}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.611156, y: -118.78931, z: -264.03128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271931674
 GameObject:
   m_ObjectHideFlags: 0

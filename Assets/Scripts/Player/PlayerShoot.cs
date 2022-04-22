@@ -15,17 +15,17 @@ public class PlayerShoot : MonoBehaviour
     private float timer;
     private float maxTimer = 0.1f;
 
-    public InputActionMap playerInput;
-    PlayerControls controls;
-    PlayerControls.MovementActions movement;
+    //public InputActionMap playerInput;
+    ///PlayerControls controls;
+    //PlayerControls.MovementActions movement;
 
     private void Awake()
     {
         audioController = GameObject.FindObjectOfType<AudioController>();
-        controls = new PlayerControls();
-        movement = controls.Movement;
+       /// controls = new PlayerControls();
+        //movement = controls.Movement;
 
-        movement.Shoot.performed += _ => Shoot();
+        //movement.Shoot.performed += _ => Shoot();
     }
     private void Update()
     {
@@ -35,14 +35,12 @@ public class PlayerShoot : MonoBehaviour
     
     public void Shoot()
     {
-            
             GameObject projectile = Instantiate(bullet, bulletPos.position, bulletPos.rotation);
             projectile.transform.position = bulletPos.position;
             Rigidbody rb = projectile.GetComponent<Rigidbody>();
             rb.velocity = bulletPos.transform.forward * speed;
             audioController.gameSounds[12].Play();
             timer = 0;
-
     }
 }
 

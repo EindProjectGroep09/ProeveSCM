@@ -280,7 +280,7 @@ Transform:
   m_Children:
   - {fileID: 382337798}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &53942985
 GameObject:
@@ -610,7 +610,19 @@ MonoBehaviour:
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: CharacterSwitcher, Assembly-CSharp
+        m_MethodName: SwitchNextCharacter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -626,7 +638,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 6007015825994900883, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
+  m_PlayerPrefab: {fileID: 511537732936510100, guid: 9e884085ced7c7e4b9a8c8fe7076497b, type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -951,7 +963,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ee1da722209b8ab4ca20b32c50fad291, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee1da722209b8ab4ca20b32c50fad291, type: 3}
       propertyPath: m_LocalScale.x
@@ -1043,7 +1055,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2649811256901168292, guid: 1229f52bac7c8db4d8c527587c2c4816, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2649811256901168292, guid: 1229f52bac7c8db4d8c527587c2c4816, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1222,7 +1234,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1171521072
 PrefabInstance:
@@ -1233,7 +1245,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2559038674991318328, guid: ba23cc251334f35468b8a77f31f703ba, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2559038674991318328, guid: ba23cc251334f35468b8a77f31f703ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1372,7 +1384,7 @@ Transform:
   - {fileID: 2103845364}
   - {fileID: 1916343212}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1314155376
 PrefabInstance:
@@ -1636,7 +1648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d493d040d3d818d4299a8359e29e864f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d493d040d3d818d4299a8359e29e864f, type: 3}
       propertyPath: m_LocalScale.x
@@ -1834,7 +1846,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1624559159
 PrefabInstance:
@@ -2425,7 +2437,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d493d040d3d818d4299a8359e29e864f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d493d040d3d818d4299a8359e29e864f, type: 3}
       propertyPath: m_LocalScale.x

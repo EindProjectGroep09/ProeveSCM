@@ -17,16 +17,24 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("I exist");
+        transform.localPosition -= new Vector3(movementInput.x, 0, movementInput.y);
+       
+        transform.Rotate(new Vector3(0, rotateInput.x, 0) * (speedRotate * Time.deltaTime));
+
         if (movementInput.x != 0 || movementInput.y != 0)
         {
             audioController.gameSounds[9].Play();
         }
-        transform.localPosition -= new Vector3(movementInput.x, 0, movementInput.y) * (speedMovement * Time.deltaTime);
-        transform.Rotate(new Vector3(0, rotateInput.x, 0) * (speedRotate * Time.deltaTime));
     }
 
-    public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
+    public void OnMove(Vector2 value)
+    {
+        movementInput = value * speedMovement * Time.deltaTime;
+     //   transform.localPosition -= new Vector3(movementInput.x, 0, movementInput.y) * (speedMovement * Time.deltaTime);
+    }
 
-    public void OnRotate(InputAction.CallbackContext ctx) => rotateInput = ctx.ReadValue<Vector2>();
+    public void OnRotate(Vector2 value)
+    {
+        rotateInput = value * speedRotate * Time.deltaTime;
+    }
 }

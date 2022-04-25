@@ -39,7 +39,7 @@ public class EnemyRangedState : EnemyBaseState {
     }
 
     private async void  ResetAttack(EnemyStateManager enemy){
-        Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.timeBetweenAttacks * 1000);
+        Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.timeBetweenAttacks * 2000);
         await longRunningTask;
         alreadyAttacked = false;
     }

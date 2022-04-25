@@ -21,13 +21,14 @@ public class BulletScript : MonoBehaviour
 
 		Debug.Log(collision.gameObject);
 
-		if (collision.gameObject.CompareTag("Enemy"))
+		if (collision.gameObject.CompareTag("Enemy") && gameObject.tag == "Bullet")
 		{
 			audioController.gameSounds[7].Play();
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
 			Destroy(gameObject);
 		}
-		else if(collision.gameObject.CompareTag("Player")){
+		else if(collision.gameObject.CompareTag("Player") && gameObject.tag == "Laser")
+		{
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
 		}

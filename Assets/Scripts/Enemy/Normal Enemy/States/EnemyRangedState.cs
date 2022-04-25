@@ -21,7 +21,7 @@ public class EnemyRangedState : EnemyBaseState {
             Debug.Log("i shot the serif");
             GameObject bullet = GameObject.Instantiate(enemy.BulletPrefab, enemy.bulletSpawn.position, Quaternion.Euler(enemy.bulletSpawn.position.x, enemy.bulletSpawn.position.y, enemy.bulletSpawn.position.z));
             alreadyAttacked = true;
-            bullet.GetComponent<Rigidbody>().AddForce((enemy.currentTarget.position - enemy.transform.position) * 10, ForceMode.Impulse);
+            bullet.GetComponent<Rigidbody>().AddForce((enemy.currentTarget.position - enemy.transform.position) * 2, ForceMode.Impulse);
          
 
             ResetAttack(enemy);

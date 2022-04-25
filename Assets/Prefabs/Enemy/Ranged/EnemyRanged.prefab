@@ -120,10 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRanged: 1
+  AllTargetsInRange: []
   currentTarget: {fileID: 0}
   bulletSpawn: {fileID: 207179947}
   agent: {fileID: 4028110811217241030}
-  BulletPrefab: {fileID: 0}
+  BulletPrefab: {fileID: 3254920489263102119, guid: cffad7062cf11b941b3aa2323a1fb422, type: 3}
   sightRange: 25
   rangedRange: 15
   meleeRange: 0

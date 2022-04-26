@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput;
     private Vector2 rotateInput;
     private float speedMovement = 5.0f;
-    private float speedRotate = 100.0f;
+    private float speedRotate = 150.0f;
 
     private Animator playerAnim;
     private AudioController audioController;

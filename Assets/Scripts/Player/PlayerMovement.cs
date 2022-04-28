@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.localPosition -= new Vector3(movementInput.x, 0, movementInput.y);
        
-        transform.Rotate(new Vector3(0, rotateInput.x, 0) * (speedRotate * Time.deltaTime));
+        transform.rotation = Quaternion.Euler(0, rotateInput.x, 0);
 
         if (movementInput.x != 0 || movementInput.y != 0)
         {

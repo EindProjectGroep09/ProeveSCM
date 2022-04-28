@@ -39,7 +39,7 @@ public class SimonSaysManager : MonoBehaviour
     
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "Test_Scene Boss Room")
+        if (SceneManager.GetActiveScene().name == "Test_Scene Boss room")
         {
             maskObject = GameObject.FindGameObjectWithTag("MaskBoss");
             animMask = maskObject.GetComponent<Animator>();
@@ -180,21 +180,24 @@ public class SimonSaysManager : MonoBehaviour
 
         gameTimer += 30f;
         simonSaysHealth -= 1;
-        if (SceneManager.GetActiveScene().name == "Test_Scene Boss Room")
+        if (SceneManager.GetActiveScene().name == "Test_Scene Boss room")
         {
             switch (simonSaysHealth)
             {
                 case 3:
                     animMask.Play("Anim_mask_happy");
-                    EnemySpawner.instance.SpawnWave(3);
+                   // EnemySpawner.instance.SpawnWave(3);
+                    EnemySpawner.instance.StartCoroutine(EnemySpawner.instance.SpawnWave(3));
                     break;
                 case 2:
                     animMask.Play("Anim_mask_neutral");
-                    EnemySpawner.instance.SpawnWave(5);
+                   // EnemySpawner.instance.SpawnWave(5);
+                    EnemySpawner.instance.StartCoroutine(EnemySpawner.instance.SpawnWave(5));
                     break;
                 case 1:
                     animMask.Play("Anim_mask_angry");
-                    EnemySpawner.instance.SpawnWave(8);
+                   // EnemySpawner.instance.SpawnWave(8);
+                    EnemySpawner.instance.StartCoroutine(EnemySpawner.instance.SpawnWave(8));
                     break;
                 case 0:
                     StartCoroutine(GameLostSequence());

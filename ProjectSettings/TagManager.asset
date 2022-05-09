@@ -8,6 +8,10 @@ TagManager:
   - MaskBoss
   - Bullet
   - Laser
+  - EnemyRed
+  - EnemyBlue
+  - BulletP1
+  - BulletP2
   layers:
   - Default
   - TransparentFX

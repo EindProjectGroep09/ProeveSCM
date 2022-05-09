@@ -14,7 +14,7 @@ public class SequenceEnemyManager : MonoBehaviour
     [SerializeField] private GameObject enemyBlue;
 
     [Header("Killed Enemies")]
-    public List<GameObject> enemiesKilled;
+    public List<int> enemiesKilled;
 
     private void Start()
     {

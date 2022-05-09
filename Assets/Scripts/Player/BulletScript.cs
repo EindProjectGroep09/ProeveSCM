@@ -21,7 +21,7 @@ public class BulletScript : MonoBehaviour
 
 		Debug.Log(collision.gameObject);
 
-		if (collision.gameObject.CompareTag("Enemy") && gameObject.tag == "Bullet")
+		if (collision.gameObject.CompareTag("Enemy") && gameObject.tag == "BulletP1" || gameObject.tag == "BulletP2")
 		{
 			audioController.gameSounds[7].Play();
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);

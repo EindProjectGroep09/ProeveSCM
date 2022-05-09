@@ -1249,8 +1249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2454fc0ffea68948bbf4f9169523f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRed: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
-  enemyBlue: {fileID: 9186518944386428518, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+  enemyRed: {fileID: 7714392972483826906, guid: eada91dd607aa984f9586c6ad7f987dc, type: 3}
+  enemyBlue: {fileID: 4732045043496112238, guid: de3cfb5c0ef428a44a9fb714d997261d, type: 3}
+  enemiesKilled: 
 --- !u!1001 &1171521072
 PrefabInstance:
   m_ObjectHideFlags: 0

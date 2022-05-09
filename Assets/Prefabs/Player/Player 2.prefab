@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPos: {fileID: 2353887256151784207}
-  bullet: {fileID: 6284790586572459419, guid: 02697a426da7b2d4fa1ff4a15c41465d, type: 3}
+  bullet: {fileID: 8084640066218907750, guid: d7f130996cec90046b453c1a68d9d239, type: 3}
 --- !u!114 &8292515939827332496
 MonoBehaviour:
   m_ObjectHideFlags: 0

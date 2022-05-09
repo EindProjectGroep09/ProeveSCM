@@ -21,7 +21,7 @@ public class BulletScript : MonoBehaviour
 
 		Debug.Log(collision.gameObject);
 
-		if (collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP1" || gameObject.tag == "BulletP2")
+		if (collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP1" || collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP2")
 		{
 			audioController.gameSounds[7].Play();
 			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
@@ -32,6 +32,10 @@ public class BulletScript : MonoBehaviour
 			Destroy(gameObject);
 			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
 		}
+        else if (collision.gameObject.tag == "BulletP2" && gameObject.tag == "BulletP1" || collision.gameObject.tag == "BulletP1" && gameObject.tag == "BulletP2")
+        {
+
+        }
 		else
 		{
 			Destroy(gameObject);

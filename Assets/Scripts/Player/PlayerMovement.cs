@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator playerAnim;
     private AudioController audioController;
+
     private void Start()
     {
         playerAnim = GetComponent<Animator>();

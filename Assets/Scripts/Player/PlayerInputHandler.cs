@@ -9,10 +9,12 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerShoot playerS;
 
     [SerializeField] List<GameObject> playerPrefabs = new List<GameObject>();
+    SequenceEnemyManager sem;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Instantiate(playerPrefabs[Random.Range(0,playerPrefabs.Count)], transform.position, transform.rotation).GetComponent<PlayerMovement>();
+        sem = FindObjectOfType<SequenceEnemyManager>();
+        player = GameObject.Instantiate(playerPrefabs[sem.index], transform.position, transform.rotation).GetComponent<PlayerMovement>();
         playerS = player.gameObject.GetComponent<PlayerShoot>();
     }
 

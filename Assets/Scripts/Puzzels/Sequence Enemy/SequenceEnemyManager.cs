@@ -5,6 +5,8 @@ using UnityEngine;
 public class SequenceEnemyManager : MonoBehaviour
 {
 
+    public int index = 0;
+
     [Header ("EnemySequence")]
     private int a, b, c;
     private List<int> enemySequence = new List<int>();
@@ -20,7 +22,13 @@ public class SequenceEnemyManager : MonoBehaviour
     {
         MakeSequence();
     }
-
+    private void Update()
+    {
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            index = 1;
+        }
+    }
     public void MakeSequence()
     {
         enemySequence.Clear();

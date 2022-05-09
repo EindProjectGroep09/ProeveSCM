@@ -12,6 +12,7 @@ TagManager:
   - EnemyBlue
   - BulletP1
   - BulletP2
+  - Wall
   layers:
   - Default
   - TransparentFX

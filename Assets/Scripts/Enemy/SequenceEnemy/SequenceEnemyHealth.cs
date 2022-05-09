@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SequenceEnemyHealth : MonoBehaviour
 {
-    SequenceEnemyManager SEM;
-
+    SequenceEnemyManager SEman;
+    SequenceEnemyMovement SEmove;
     public int enemyValue; //! Blue enemy is 1, Red enemy is 0
 
     void Start()
     {
-        SEM = FindObjectOfType<SequenceEnemyManager>();   
+        SEman = FindObjectOfType<SequenceEnemyManager>();
+        SEmove = FindObjectOfType<SequenceEnemyMovement>();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -19,15 +20,20 @@ public class SequenceEnemyHealth : MonoBehaviour
         {
             EnemyDied();
         }
-        else
+        else if (collision.gameObject.tag == "BulletP1" || collision.gameObject.tag == "BulletP2")
         {
-            //TODO Enemy more speed
+            StartCoroutine(EnemyHit());
         }
     }
-
+    IEnumerator EnemyHit()
+    {
+        SEmove.characterVelocity = 0.03f;
+        yield return new WaitForSeconds(3f);
+        SEmove.characterVelocity = 0.01f;
+    }
     void EnemyDied()
     {
-        SEM.enemiesKilled.Add(enemyValue);
+        SEman.enemiesKilled.Add(enemyValue);
         Destroy(gameObject);
     }
 

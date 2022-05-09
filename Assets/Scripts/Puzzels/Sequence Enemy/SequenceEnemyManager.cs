@@ -21,11 +21,6 @@ public class SequenceEnemyManager : MonoBehaviour
         MakeSequence();
     }
 
-    private void Update()
-    {
-
-    }
-
     public void MakeSequence()
     {
         enemySequence.Clear();

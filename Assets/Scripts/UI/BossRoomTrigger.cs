@@ -6,6 +6,9 @@ public class BossRoomTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("Test_Scene Boss Room");
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene("Boss Room");
+        }
     }
 }

@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4732045043496112236}
   - component: {fileID: 4732045043496112239}
   - component: {fileID: 6526813982293715793}
+  - component: {fileID: -6486476019915297659}
+  - component: {fileID: -6892635628583383612}
   m_Layer: 0
   m_Name: EnemyBlue
   m_TagString: EnemyBlue
@@ -62,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b615285084a56744db9799024967adbd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,3 +111,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca270bd510fae1742b0cf96453bab224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyValue: 1
+--- !u!54 &-6486476019915297659
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732045043496112238}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &-6892635628583383612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732045043496112238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577ac4fb8b4c7094592ea52d6b80d479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterVelocity: 0.01

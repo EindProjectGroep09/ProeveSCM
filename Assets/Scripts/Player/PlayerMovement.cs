@@ -46,6 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnRotate(Vector2 value)
     {
-        rotateInput = value * speedRotate * Time.deltaTime;
+        rotateInput = value * speedRotate * Time.deltaTime; 
     }
 }

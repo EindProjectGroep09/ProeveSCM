@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     void Start() {
         // StartCoroutineINTER(SpawnEnemy(rangedEnemyInterval, rangedEnemy));
         // StartCoroutineINTER(SpawnEnemy(meleeEnemyInterval, meleeEnemy));
-      //  StartCoroutine(SpawnWave(enemiesPerWave));
+       StartCoroutine(SpawnWave(enemiesPerWave));
     }
 
     private IEnumerator SpawnEnemyINTER(float interval, GameObject enemy) {

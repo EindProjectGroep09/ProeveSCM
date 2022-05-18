@@ -24,7 +24,27 @@ public class BulletScript : MonoBehaviour
 
 	private void OnCollisionEnter(Collision collision)
 	{
+		if (collision.gameObject.tag == "BulletP1" && gameObject.tag == "BulletP2" || collision.gameObject.tag == "BulletP2" && gameObject.tag == "BulletP1")
+		{
+			Destroy(gameObject);
+			Destroy(collision.gameObject);
+		}
 
+		if (collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP1" || collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP2")
+		{
+			audioController.gameSounds[7].Play();
+			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
+			Destroy(gameObject);
+		}
+		else if (collision.gameObject.tag == "Player" && gameObject.tag == "Laser")
+		{
+			Destroy(gameObject);
+			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 
 		hitObjectList.Add(collision);
         for (int i = 0; i < 2; i++)
@@ -36,28 +56,6 @@ public class BulletScript : MonoBehaviour
             }
             hitObjectList.Clear();
         }
-
-        if (collision.gameObject.tag == "BulletP1" && gameObject.tag == "BulletP2" || collision.gameObject.tag == "BulletP2" && gameObject.tag == "BulletP1")
-        {
-			Destroy(gameObject);
-			Destroy(collision.gameObject);
-        }
-
-        if (collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP1" || collision.gameObject.tag == "Enemy" && gameObject.tag == "BulletP2")
-		{
-			audioController.gameSounds[7].Play();
-			collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(15f);
-			Destroy(gameObject);
-		}
-		else if (collision.gameObject.CompareTag("Player") && gameObject.tag == "Laser")
-		{
-			Destroy(gameObject);
-			collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
 	}
 }
 

@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     AudioController audioController;
     [SerializeField] private float health;
     private float currentHealth;
+    public Slider healthBar;
+    public Text healthText;
 
     private void Start()
     {
@@ -17,7 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-
+        healthBar.value = health / currentHealth;
+        healthText.text = currentHealth + "/" + health;
     }
 
     public void TakeDamage(float damage)

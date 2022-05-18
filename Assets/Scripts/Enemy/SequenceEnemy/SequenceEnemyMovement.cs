@@ -14,6 +14,7 @@ public class SequenceEnemyMovement : MonoBehaviour
 
     void Start()
     {
+        this.gameObject.transform.position = new Vector3(Random.Range(-20, 21), 5, Random.Range(-13, 14));
         latestDirectionChangeTime = 0f;
         calcuateNewMovementVector();
     }

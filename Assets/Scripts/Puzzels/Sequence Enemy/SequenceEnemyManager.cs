@@ -58,7 +58,7 @@ public class SequenceEnemyManager : MonoBehaviour
             Destroy(RedEnemy);
         }
 
-        timer = 5f;
+        timer = 60f;
         enemySequence.Clear();
 
         a = Random.Range(0, 2);

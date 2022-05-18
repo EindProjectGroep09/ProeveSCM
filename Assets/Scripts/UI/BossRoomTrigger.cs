@@ -8,7 +8,7 @@ public class BossRoomTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Boss Room");
+            SceneManager.LoadScene("BossRoom");
         }
     }
 }

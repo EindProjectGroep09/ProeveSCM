@@ -274,6 +274,7 @@ MonoBehaviour:
   enemiesPerWave: 5
   rangedEnemy: {fileID: 4028110811217241027, guid: bf4c70f67583d3b4e9d893706f30ad53, type: 3}
   meleeEnemy: {fileID: 9186518944386428518, guid: cd69401005f0add4da5d22fcbd0f96a0, type: 3}
+  enemies: []
 --- !u!1 &95116581
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,8 +591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: 0
   enemySequence: 
-  enemyRed: {fileID: 7714392972483826906, guid: eada91dd607aa984f9586c6ad7f987dc, type: 3}
-  enemyBlue: {fileID: 4732045043496112238, guid: de3cfb5c0ef428a44a9fb714d997261d, type: 3}
+  enemyRed: {fileID: 7512873456402068920, guid: a040a9db74b5f264c857213d0a61036e, type: 3}
+  enemyBlue: {fileID: 1999748529677119675, guid: 2bc37fe5bd6c5c1469953b7c6487f799, type: 3}
   enemiesKilled: 
   maskObject: {fileID: 1108810440}
 --- !u!114 &271931678

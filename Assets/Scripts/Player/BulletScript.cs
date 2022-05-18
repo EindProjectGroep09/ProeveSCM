@@ -5,10 +5,6 @@ using UnityEngine;
 public class BulletScript : MonoBehaviour
 {
     AudioController audioController;
-
-
-    List<Collision> hitObjectList = new List<Collision>();
-
     void Start()
     {
         audioController = GameObject.FindObjectOfType<AudioController>();
@@ -48,16 +44,6 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
 
-        hitObjectList.Add(collision);
-        for (int i = 0; i < 2; i++)
-        {
-            if (hitObjectList[0].gameObject.tag == "BulletP1" && hitObjectList[1].gameObject.tag == "BulletP2" || hitObjectList[0].gameObject.tag == "BulletP2" && hitObjectList[1].gameObject.tag == "BulletP1")
-            {
-                Debug.Log("Im here");
-                collision.gameObject.GetComponent<SequenceEnemyHealth>().EnemyDied();
-            }
-        }
-        hitObjectList.Clear();
     }
 }
 

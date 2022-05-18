@@ -13,8 +13,9 @@ public class SequenceStateManager : MonoBehaviour
     public NavMeshAgent agent;
     public float sightRange, walkPointRange, runPointRange;
     public bool gotHit;
-    public float runAwayTime;
+    public float runAwayTime, waitTillRunTime;
     public LayerMask whatIsGround, whatIsplayer;
+    public List<Collision> HitObjectsList = new List<Collision>();
 
     //! these vars are for the state machine 
     [Header("State Machine Vars")]

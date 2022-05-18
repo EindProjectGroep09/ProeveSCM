@@ -19,7 +19,7 @@ public class SequenceEnemyManager : MonoBehaviour
     public List<int> enemiesKilled;
 
     [Header("Timer")]
-    private float timer = 60f;
+    private float timer;
     int playerSequenceHealth = 3;
 
     [SerializeField] GameObject maskObject;
@@ -58,7 +58,7 @@ public class SequenceEnemyManager : MonoBehaviour
             Destroy(RedEnemy);
         }
 
-        timer = 60f;
+        timer = 30f;
         enemySequence.Clear();
 
         a = Random.Range(0, 2);

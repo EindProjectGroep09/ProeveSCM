@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     AudioController audioController;
     [SerializeField] private float health;
-    private float currentHealth;
+    public float currentHealth;
     public Slider healthBar;
     public Text healthText;
 
@@ -17,15 +17,17 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = health;
     }
 
+
     private void Update()
     {
-        healthBar.value = health / currentHealth;
+        healthBar.value = currentHealth;
         healthText.text = currentHealth + "/" + health;
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+
 
         if (currentHealth <= 0)
         {

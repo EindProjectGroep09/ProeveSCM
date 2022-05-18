@@ -31,7 +31,7 @@ public class SequenceEnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(3f);
         SEmove.characterVelocity = 0.01f;
     }
-    void EnemyDied()
+    public void EnemyDied()
     {
         SEman.enemiesKilled.Add(enemyValue);
         Destroy(gameObject);

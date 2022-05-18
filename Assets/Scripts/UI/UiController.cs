@@ -36,7 +36,7 @@ public class UiController : MonoBehaviour
     public void StartGameMain()
     {
         buttonClick.Play();
-        SceneManager.LoadScene("Test_Scene Tutorial");
+        SceneManager.LoadScene("Tutorial");
     }
 
 /*    public void VolumeButton()

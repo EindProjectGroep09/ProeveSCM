@@ -3,7 +3,7 @@ using UnityEngine;
 public class SequenceWanderState : SequenceBaseState
 {
     public Vector3 walkPoint;
-    public bool walkPointSet;
+    public bool walkPointSet = false;
     public float walkPointRange;
     public LayerMask whatIsGround, whatIsPlayer;
     private Transform transform;
@@ -18,6 +18,8 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void UpdateState(SequenceStateManager enemy)
     {
+
+        Debug.Log(walkPointSet);
         transform = enemy.transform;
         //* checking if the enemy has an wander point
         if (!walkPointSet) SearchWalkPoint();
@@ -27,7 +29,7 @@ public class SequenceWanderState : SequenceBaseState
         if (distanceToWalkPoint.magnitude < 1) walkPointSet = false;
 
 
-        if (enemy.HitObjectsList.Count > 2)
+        if (enemy.HitObjectsList.Count >= 2)
         {
             for (int i = 0; i < enemy.HitObjectsList.Count; i++)
             {
@@ -40,7 +42,7 @@ public class SequenceWanderState : SequenceBaseState
         }
         else if (enemy.HitObjectsList.Count > 1 && (!player1Hit || !player2Hit))
         {
-            waitTillRunTime = -1 * Time.deltaTime;
+            waitTillRunTime -= Time.deltaTime;
         }
 
         if (waitTillRunTime <= 0) enemy.SwitchState(enemy.runState);

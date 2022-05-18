@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]private int enemiesPerWave;
+    [SerializeField] private int enemiesPerWave;
 
-    [SerializeField]private GameObject rangedEnemy;
-    [SerializeField]private GameObject meleeEnemy;
+    [SerializeField] private List<GameObject> Spawnpoints = new List<GameObject>();
+
+    [SerializeField] private GameObject rangedEnemy;
+    [SerializeField] private GameObject meleeEnemy;
 
     // [SerializeField]private float rangedEnemyInterval = 3.5f;
     // [SerializeField]private float meleeEnemyInterval = 10f;
@@ -15,39 +17,49 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> enemies = new List<GameObject>();
     public static EnemySpawner instance;
 
-    void Awake(){
-        if(instance == null) 
-        instance = this;
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
     }
-    void Start(){
+    void Start()
+    {
         // StartCoroutineINTER(SpawnEnemy(rangedEnemyInterval, rangedEnemy));
         // StartCoroutineINTER(SpawnEnemy(meleeEnemyInterval, meleeEnemy));
         StartCoroutine(SpawnWave(enemiesPerWave));
     }
 
-    private IEnumerator SpawnEnemyINTER(float interval, GameObject enemy){
+    private IEnumerator SpawnEnemyINTER(float interval, GameObject enemy)
+    {
         yield return new WaitForSeconds(interval);
-        GameObject NewEnemy = Instantiate(enemy, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+        int RNum = Random.Range(0, Spawnpoints.Count);
+        GameObject NewEnemy = Instantiate(enemy, new Vector3(Spawnpoints[RNum].transform.position.x, 7, Spawnpoints[RNum].transform.position.z), Quaternion.identity);
         enemies.Add(NewEnemy);
         StartCoroutine(SpawnEnemyINTER(interval, enemy));
     }
-    private void SpawnEnemy(GameObject enemy){
-        GameObject NewEnemy = Instantiate(enemy, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+    private void SpawnEnemy(GameObject enemy)
+    {
+        int RNum = Random.Range(0, Spawnpoints.Count);
+        GameObject NewEnemy = Instantiate(enemy, new Vector3(Spawnpoints[RNum].transform.position.x, 7, Spawnpoints[RNum].transform.position.z), Quaternion.identity);
         enemies.Add(NewEnemy);
     }
 
-    public IEnumerator SpawnWave(int EnemyAmount){
+    public IEnumerator SpawnWave(int EnemyAmount)
+    {
         yield return new WaitForSeconds(2);
-        for (int i = 0; i < EnemyAmount; i++){
-            SpawnEnemy(rangedEnemy);
+        for (int i = 0; i < EnemyAmount; i++)
+        {
+            SpawnEnemy(meleeEnemy);
         }
         // for(int i = 0; i < EnemyAmount / 2; i++){
         //     SpawnEnemy(meleeEnemy);
         // }
     }
 
-    public void kill_All_Enemies(){
-        for(int i = 0; i < enemies.Count; i++){
+    public void kill_All_Enemies()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
             Destroy(enemies[i]);
         }
     }

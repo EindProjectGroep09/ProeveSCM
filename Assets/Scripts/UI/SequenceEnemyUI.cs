@@ -42,7 +42,7 @@ public class SequenceEnemyUI : MonoBehaviour
         }
         if (!timerCheck)
         {
-            StartCoroutine(TimerTake());   
+            StartCoroutine(TimerTake());
         }
         if (levelTimerInSeconds <= 9)
         {
@@ -67,7 +67,7 @@ public class SequenceEnemyUI : MonoBehaviour
             {
                 SceneManager.LoadScene("WinScreen");
             }
-           
+
             levelTimerInSeconds = 59;
         }
 

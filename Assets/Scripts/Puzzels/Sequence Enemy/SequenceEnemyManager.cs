@@ -84,7 +84,6 @@ public class SequenceEnemyManager : MonoBehaviour
         enemySequence.Add(b);
         enemySequence.Add(c);
       
-        StartCoroutine(TextCloudVisible());
         SpawnSequenceEnemy();
     }
 
@@ -119,15 +118,9 @@ public class SequenceEnemyManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("GameOverScreen");
     }
-    private IEnumerator TextCloudVisible()
-    {
-        SequenceEnemyUI.instance.textCloud.SetActive(true);
-        yield return new WaitForSeconds(3f);
-        SequenceEnemyUI.instance.textCloud.SetActive(false);
-    }
+
     public void FinishedSequence()
     {
-        Debug.Log(2);
         MakeSequence();
     }
     private void SpawnSequenceEnemy()

@@ -17,8 +17,8 @@ public class SequenceEnemyUI : MonoBehaviour
      * 4 positions for 4 colored images
      * Set the correct image on correct position
      */
-    int levelTimerInSeconds = 5;
-    int levelTimerInMinutes = 0;
+    int levelTimerInSeconds = 59;
+    int levelTimerInMinutes = 3;
     public Text timerText;
     bool timerCheck = false;
 

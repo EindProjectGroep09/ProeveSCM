@@ -12,8 +12,10 @@ public class SequenceEnemyManager : MonoBehaviour
     public List<int> enemySequence = new List<int>();
 
     [Header("Enemies")]
-    [SerializeField] private GameObject enemyRed;
     [SerializeField] private GameObject enemyBlue;
+    [SerializeField] private GameObject enemyGreen;
+    [SerializeField] private GameObject enemyPurple;
+    [SerializeField] private GameObject enemyRed;
 
     [Header("Killed Enemies")]
     public List<int> enemiesKilled;
@@ -48,7 +50,7 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     public void MakeSequence()
     {
-        SequenceEnemyUI.instance.sequenceText.Clear();
+        //SequenceEnemyUI.instance.sequenceText.Clear();
         foreach (GameObject BlueEnemy in GameObject.FindGameObjectsWithTag("EnemyBlue"))
         {
             Destroy(BlueEnemy);
@@ -57,24 +59,36 @@ public class SequenceEnemyManager : MonoBehaviour
         {
             Destroy(RedEnemy);
         }
+        foreach (GameObject GreenEnemy in GameObject.FindGameObjectsWithTag("EnemyGreen"))
+        {
+            Destroy(GreenEnemy);
+        }
+        foreach (GameObject PurpleEnemy in GameObject.FindGameObjectsWithTag("EnemyPurple"))
+        {
+            Destroy(PurpleEnemy);
+        }
 
         timer = 30f;
         enemySequence.Clear();
 
-        a = Random.Range(0, 2);
-        b = Random.Range(0, 2);
-        c = Random.Range(0, 2);
-
+        a = Random.Range(0, 4);
+        b = Random.Range(0, 4);
+        c = Random.Range(0, 4);
+        if (a == b && b == c)
+        {
+            a = Random.Range(0, 4);
+            b = Random.Range(0, 4);
+            c = Random.Range(0, 4);
+        }
         enemySequence.Add(a);
         enemySequence.Add(b);
         enemySequence.Add(c);
-
+      
         SpawnSequenceEnemy();
     }
 
     public void LostSequence()
     {
-        Debug.Log(1);
         playerSequenceHealth -= 1;
         if (SceneManager.GetActiveScene().name == "BossRoom")
         {
@@ -102,19 +116,21 @@ public class SequenceEnemyManager : MonoBehaviour
     {
         animMask.Play("Anim_mask_outburst");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("GameOverScreen");
     }
+
     public void FinishedSequence()
     {
-        Debug.Log(2);
         MakeSequence();
     }
     private void SpawnSequenceEnemy()
     {
-        for (int i = 0; i < enemySequence.Count; i++)
+        for (int i = 0; i < 2; i++)
         {
             GameObject EnemyBlue = Instantiate(enemyBlue, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
-            GameObject EnemyRed = Instantiate(enemyRed, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+            GameObject EnemyGreen = Instantiate(enemyGreen, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+            GameObject EnemyPurple = Instantiate(enemyPurple, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+            GameObject EnemyRed = Instantiate(enemyRed, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity); 
         }
 
     }

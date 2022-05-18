@@ -16,16 +16,9 @@ public class UiController : MonoBehaviour
     }
     public void Update()
     {
-/*        if (audioVolumeOn)
-        {
-            gameMusic.volume = 1f;
-            return; 
-        }
-        {
-            gameMusic.volume = 0f;
-            return;
-        }*/
+
     }
+
 
     public void QuitGame()
     {
@@ -36,7 +29,7 @@ public class UiController : MonoBehaviour
     public void StartGameMain()
     {
         buttonClick.Play();
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("IntroVideo");
     }
 
 /*    public void VolumeButton()

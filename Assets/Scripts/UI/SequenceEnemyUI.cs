@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SequenceEnemyUI : MonoBehaviour
 {
     public static SequenceEnemyUI instance;
-    /*?
-     Visible sequence
-    Maybe visible for a little while?
-    textwolkje waar het in staat
-     */
 
-    [SerializeField] private Text textCloud;
-    
-    public List<string> sequenceText = new List<string>();
-    private string sequenceTextColor;
+    public GameObject textCloud; //mask Image for sequence
+
+    public Image[] colorImages;
+    public Sprite[] sequenceColors;
     private SequenceEnemyManager SEManager;
-    //private List<string> strings = new List<string>();
+    /*TODO 
+     * 4 positions for 4 colored images
+     * Set the correct image on correct position
+     */
+    int levelTimerInSeconds = 59;
+    int levelTimerInMinutes = 3;
+    public Text timerText;
+    bool timerCheck = false;
 
     private void Awake()
     {
@@ -35,23 +38,39 @@ public class SequenceEnemyUI : MonoBehaviour
     {
         for (int i = 0; i < SEManager.enemySequence.Count; i++)
         {
-            if (SEManager.enemySequence[i].ToString().Contains("0"))
-            {
-               sequenceText.Add( SEManager.enemySequence[i].ToString().Replace("0", "Red"));
-            }
-            else
-            {
-                sequenceText.Add(SEManager.enemySequence[i].ToString().Replace("1", "Blue"));
-            }
+            colorImages[i].sprite = sequenceColors[SEManager.enemySequence[i]];
         }
-        if (sequenceText.Count == 3)
+        if (!timerCheck)
         {
-            textCloud.text = sequenceText[0] + ", " + sequenceText[1] + ", " + sequenceText[2];
+            StartCoroutine(TimerTake());
+        }
+        if (levelTimerInSeconds <= 9)
+        {
+            timerText.text = levelTimerInMinutes + ":0" + levelTimerInSeconds;
+        }
+        else
+        {
+            timerText.text = levelTimerInMinutes + ":" + levelTimerInSeconds;
         }
     }
 
-/*    private void OnGUI()
+    private IEnumerator TimerTake()
     {
-        GUI.Label(new Rect(10, 10, 150, 20), sequenceText[0] + ", " + sequenceText[1] + ", " + sequenceText[2]) ;
-    }*/
+        timerCheck = true;
+        yield return new WaitForSeconds(1);
+        levelTimerInSeconds -= 1;
+        if (levelTimerInSeconds <= 0)
+        {
+            levelTimerInMinutes -= 1;
+
+            if (levelTimerInSeconds <= 0 && levelTimerInMinutes <= 0)
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
+
+            levelTimerInSeconds = 59;
+        }
+
+        timerCheck = false;
+    }
 }

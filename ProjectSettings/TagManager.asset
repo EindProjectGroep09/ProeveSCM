@@ -13,6 +13,8 @@ TagManager:
   - BulletP1
   - BulletP2
   - Wall
+  - EnemyGreen
+  - EnemyPurple
   layers:
   - Default
   - TransparentFX

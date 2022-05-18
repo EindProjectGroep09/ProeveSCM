@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 public class PlayerInputHandler : MonoBehaviour
 {
 
@@ -10,12 +11,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     [SerializeField] List<GameObject> playerPrefabs = new List<GameObject>();
     SequenceEnemyManager sem;
+    TutorialUI SET;
     // Start is called before the first frame update
     void Start()
     {
+        SET = FindObjectOfType<TutorialUI>();
         sem = FindObjectOfType<SequenceEnemyManager>();
-        player = GameObject.Instantiate(playerPrefabs[sem.index], transform.position, transform.rotation).GetComponent<PlayerMovement>();
-        playerS = player.gameObject.GetComponent<PlayerShoot>();
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            player = GameObject.Instantiate(playerPrefabs[SET.index], transform.position, transform.rotation).GetComponent<PlayerMovement>();
+        }
+        else if (SceneManager.GetActiveScene().name == "BossRoom")
+        {
+            player = GameObject.Instantiate(playerPrefabs[sem.index], transform.position, transform.rotation).GetComponent<PlayerMovement>();
+        }
+            playerS = player.gameObject.GetComponent<PlayerShoot>();
     }
 
     public void MovePlayer(InputAction.CallbackContext ctx)

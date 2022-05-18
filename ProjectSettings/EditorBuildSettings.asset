@@ -18,7 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/BossRoom.unity
     guid: 7997d523b0c33d846ac9d1b9766dff49
   - enabled: 1
+    path: Assets/Scenes/Levels/WinScreen.unity
+    guid: 2c2697c66376db34797359bbd12af599
+  - enabled: 1
     path: Assets/Scenes/Levels/Tutorial.unity
     guid: 49242aebb03d9f54381c4c2c07265cb9
+  - enabled: 1
+    path: Assets/Scenes/Levels/GameOverScreen.unity
+    guid: ba9ea4c0024f643438712d7f95a7a2f8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7616a1904dfbadb40b8c465be75f4f9e, type: 2}

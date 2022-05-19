@@ -141,8 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 4588652658489386739}
   sightRange: 0
-  walkPointRange: 5
-  runPointRange: 8
+  walkPointRange: 3
+  runPointRange: 5
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
@@ -152,7 +152,6 @@ MonoBehaviour:
   whatIsplayer:
     serializedVersion: 2
     m_Bits: 128
-  HitObjectsList: []
 --- !u!195 &4588652658489386739
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8639695645301379625}
   - component: {fileID: 2802925607189675897}
   - component: {fileID: 8785649096013952420}
+  - component: {fileID: 2272916476063508478}
   m_Layer: 0
   m_Name: EnemyGreen
   m_TagString: EnemyGreen
@@ -163,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2802925607189675897}
   sightRange: 0
-  walkPointRange: 5
-  runPointRange: 8
+  walkPointRange: 3
+  runPointRange: 5
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
@@ -174,7 +175,25 @@ MonoBehaviour:
   whatIsplayer:
     serializedVersion: 2
     m_Bits: 128
-  HitObjectsList: []
+--- !u!95 &2272916476063508478
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8639695645301379635}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac8da69d3b3958048a3bc324bf332c55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8874119570683943237
 GameObject:
   m_ObjectHideFlags: 0

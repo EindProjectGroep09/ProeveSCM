@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6321161733576428253}
   - component: {fileID: -758681198515008349}
   - component: {fileID: 2021842927299194028}
+  - component: {fileID: 8414734479999105783}
   m_Layer: 0
   m_Name: EnemyBlue 1
   m_TagString: EnemyBlue
@@ -141,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2021842927299194028}
   sightRange: 0
-  walkPointRange: 5
-  runPointRange: 8
+  walkPointRange: 3
+  runPointRange: 5
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
@@ -152,7 +153,6 @@ MonoBehaviour:
   whatIsplayer:
     serializedVersion: 2
     m_Bits: 128
-  HitObjectsList: []
 --- !u!195 &2021842927299194028
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -175,6 +175,25 @@ NavMeshAgent:
   m_BaseOffset: 1.94087
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &8414734479999105783
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321161733576428251}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac8da69d3b3958048a3bc324bf332c55, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6591069503777505499
 GameObject:
   m_ObjectHideFlags: 0

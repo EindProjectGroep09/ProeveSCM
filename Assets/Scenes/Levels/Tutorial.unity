@@ -1157,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1599229724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1431,6 +1431,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 35a3462de788ea0449589811f96fa016, type: 2}
+    - target: {fileID: 5697352999380874379, guid: ef3d473bd3327aa41bb8b8bbf8b56658, type: 3}
+      propertyPath: m_Name
+      value: 'MDL_Balloon '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef3d473bd3327aa41bb8b8bbf8b56658, type: 3}
 --- !u!1 &1873934625

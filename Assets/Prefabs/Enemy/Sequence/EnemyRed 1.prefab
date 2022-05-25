@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3017194843240831997}
-  sightRange: 0
+  sightRange: 10
   walkPointRange: 8
   runPointRange: 10
   gotHit: 0
@@ -234,7 +234,7 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 3.88174
   m_BaseOffset: 1.94087
-  m_WalkableMask: 4294967295
+  m_WalkableMask: 7
   m_ObstacleAvoidanceType: 4
 --- !u!54 &2530188902835439499
 Rigidbody:

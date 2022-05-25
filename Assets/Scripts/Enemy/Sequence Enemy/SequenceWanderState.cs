@@ -19,6 +19,7 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void UpdateState(SequenceStateManager enemy)
     {
+        Debug.Log(enemy.gameObject + "'s Walkpointset is: " + walkPointSet);
 
         transform = enemy.transform;
         //* checking if the enemy has an wander point
@@ -26,7 +27,7 @@ public class SequenceWanderState : SequenceBaseState
         if (walkPointSet) enemy.agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < 0.1) walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < 1) walkPointSet = false;
 
 
         if (enemy.HitObjectsList.Count >= 2)
@@ -51,7 +52,7 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void CollisionEnter(SequenceStateManager enemy, Collision collision)
     {
-        Debug.Log(collision + " " +  enemy.gameObject.name);
+        //Debug.Log(collision + " " +  enemy.gameObject.name);
        // enemy.SwitchState(enemy.runState);
         //enemy.HitObjectsList.Add(collision);
     }

@@ -11,7 +11,7 @@ public class EnemyWanderState : EnemyBaseState {
     private Transform transform;  
 
     public override void EnterState(EnemyStateManager enemy){
-        Debug.Log("Entered Wander state");
+        //Debug.Log("Entered Wander state");
         walkPointRange = enemy.walkPointRange;
         whatIsGround = enemy.whatIsGround;
         whatIsPlayer = enemy.whatIsPlayer;

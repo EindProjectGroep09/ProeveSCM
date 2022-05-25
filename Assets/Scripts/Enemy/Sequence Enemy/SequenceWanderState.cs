@@ -23,9 +23,8 @@ public class SequenceWanderState : SequenceBaseState
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet) enemy.agent.SetDestination(walkPoint);
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+        Vector3 distanceToWalkPoint = enemy.transform.position - walkPoint;
         if (distanceToWalkPoint.magnitude < 1) walkPointSet = false;
-
 
         if (enemy.HitObjectsList.Count > 2)
         {
@@ -61,4 +60,6 @@ public class SequenceWanderState : SequenceBaseState
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
     }
+
+    
 }

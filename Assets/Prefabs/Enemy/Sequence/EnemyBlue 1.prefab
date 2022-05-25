@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -758681198515008349}
   - component: {fileID: 2021842927299194028}
   - component: {fileID: 8414734479999105783}
+  - component: {fileID: -7415393116420698381}
   m_Layer: 0
   m_Name: EnemyBlue 1
   m_TagString: EnemyBlue
@@ -141,9 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 2021842927299194028}
-  sightRange: 0
-  walkPointRange: 3
-  runPointRange: 5
+  walkPointRange: 8
+  runPointRange: 12
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
@@ -194,6 +194,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &-7415393116420698381
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321161733576428251}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6591069503777505499
 GameObject:
   m_ObjectHideFlags: 0

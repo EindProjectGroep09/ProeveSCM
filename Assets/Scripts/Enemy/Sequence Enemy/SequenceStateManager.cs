@@ -11,7 +11,7 @@ public class SequenceStateManager : MonoBehaviour
     [Header("Enemy Settings")]
     private List<Collider> allTargetsInRange = new List<Collider>();
     public NavMeshAgent agent;
-    public float sightRange, walkPointRange, runPointRange;
+    public float walkPointRange, runPointRange;
     public bool gotHit;
     public float runAwayTime, waitTillRunTime;
     public LayerMask whatIsGround, whatIsplayer;
@@ -43,5 +43,14 @@ public class SequenceStateManager : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         currentState.CollisionEnter(this, collision);
+    }
+
+     private void OnDrawGizmosSelected(){
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, runPointRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, walkPointRange);
     }
 }

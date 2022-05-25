@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6321161733576428253}
   - component: {fileID: -758681198515008349}
   - component: {fileID: 2021842927299194028}
+  - component: {fileID: -8842166386016178067}
   m_Layer: 0
   m_Name: EnemyBlue 1
   m_TagString: EnemyBlue
@@ -141,8 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2021842927299194028}
   sightRange: 0
-  walkPointRange: 5
-  runPointRange: 8
+  walkPointRange: 8
+  runPointRange: 10
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
@@ -162,7 +163,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -174,6 +175,22 @@ NavMeshAgent:
   m_BaseOffset: 2.51
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &-8842166386016178067
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6321161733576428251}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &6591069503777505499
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6591069503777505498}
   - component: {fileID: 6591069503777505497}
+  - component: {fileID: 2076526216197723553}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -218,3 +236,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.57, y: 3.68, z: 2.22}
   m_Center: {x: 0, y: -0.09, z: 1.59}
+--- !u!54 &2076526216197723553
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6591069503777505499}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

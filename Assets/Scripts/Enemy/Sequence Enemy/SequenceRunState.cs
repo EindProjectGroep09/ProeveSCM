@@ -11,6 +11,7 @@ public class SequenceRunState : SequenceBaseState
     private float runTime;
     public override void EnterState(SequenceStateManager enemy)
     {
+        //Debug.Log("I am running");
         runPointRange = enemy.runPointRange;
         whatIsGround = enemy.whatIsGround;
         enemy.HitObjectsList.Clear();
@@ -18,7 +19,7 @@ public class SequenceRunState : SequenceBaseState
     }
     public override void UpdateState(SequenceStateManager enemy)
     {
-
+        //TODO Run animation
         transform = enemy.transform;
         //* makes a point to run to 
         if (!runPointSet) SearchRunPoint();
@@ -26,7 +27,7 @@ public class SequenceRunState : SequenceBaseState
 
         Vector3 distanceToRunPoint = transform.position - runPoint;
         if (distanceToRunPoint.magnitude < 1) runPointSet = false;
-        runTime = -1 * Time.deltaTime;
+        runTime -= Time.deltaTime;
 
         if (runTime <= 0) enemy.SwitchState(enemy.wanderState);
     }

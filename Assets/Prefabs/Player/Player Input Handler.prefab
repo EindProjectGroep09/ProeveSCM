@@ -103,6 +103,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 511537732936510100}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 0eb822c8-c1b2-40d2-8b84-fdd3175a1f01
     m_ActionName: Movement/Shoot[/Keyboard/space,/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
@@ -125,3 +137,4 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 6007015825994900883, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
   - {fileID: 7708068177792321977, guid: d7f722ead6054a843b73596a54d3e537, type: 3}
+  canShoot: 0

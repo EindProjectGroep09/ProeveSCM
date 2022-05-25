@@ -42,6 +42,7 @@ public class SequenceStateManager : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         currentState.CollisionEnter(this, collision);
     }
 }

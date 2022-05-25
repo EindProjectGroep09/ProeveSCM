@@ -11,6 +11,7 @@ public class SequenceWanderState : SequenceBaseState
     private float waitTillRunTime;
     public override void EnterState(SequenceStateManager enemy)
     {
+       // Debug.Log("I am walking");
         walkPointRange = enemy.walkPointRange;
         whatIsGround = enemy.whatIsGround;
         waitTillRunTime = enemy.waitTillRunTime;
@@ -19,14 +20,13 @@ public class SequenceWanderState : SequenceBaseState
     public override void UpdateState(SequenceStateManager enemy)
     {
 
-        Debug.Log(walkPointSet);
         transform = enemy.transform;
         //* checking if the enemy has an wander point
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet) enemy.agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < 1) walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < 0.1) walkPointSet = false;
 
 
         if (enemy.HitObjectsList.Count >= 2)
@@ -51,7 +51,9 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void CollisionEnter(SequenceStateManager enemy, Collision collision)
     {
-        enemy.HitObjectsList.Add(collision);
+        Debug.Log(collision + " " +  enemy.gameObject.name);
+       // enemy.SwitchState(enemy.runState);
+        //enemy.HitObjectsList.Add(collision);
     }
 
     public void SearchWalkPoint()

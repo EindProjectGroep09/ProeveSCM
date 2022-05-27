@@ -20,7 +20,7 @@ public class SequenceWanderState : SequenceBaseState
     public override void UpdateState(SequenceStateManager enemy)
     {
         Debug.Log(enemy.gameObject + "'s Walkpointset is: " + walkPointSet);
-
+        enemy.walkPoint = walkPoint;
         transform = enemy.transform;
         //* checking if the enemy has an wander point
         if (!walkPointSet) SearchWalkPoint();
@@ -52,6 +52,8 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void CollisionEnter(SequenceStateManager enemy, Collision collision)
     {
+        walkPoint = walkPoint * -1;
+        
         //Debug.Log(collision + " " +  enemy.gameObject.name);
        // enemy.SwitchState(enemy.runState);
         //enemy.HitObjectsList.Add(collision);

@@ -501,6 +501,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 3575598045946507974, guid: de1a677b34f25804aaa2ad0de6f510a9, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321283918582842417, guid: de1a677b34f25804aaa2ad0de6f510a9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700687701679465328, guid: de1a677b34f25804aaa2ad0de6f510a9, type: 3}
       propertyPath: m_Layer
       value: 8

@@ -16,7 +16,7 @@ public class SequenceStateManager : MonoBehaviour
     public float runAwayTime, waitTillRunTime;
     public LayerMask whatIsGround, whatIsplayer;
     public List<Collision> HitObjectsList = new List<Collision>();
-
+    public Vector3 walkPoint;
     //! these vars are for the state machine 
     [Header("State Machine Vars")]
     public SequenceBaseState currentState;
@@ -44,5 +44,15 @@ public class SequenceStateManager : MonoBehaviour
     {
         //Debug.Log(collision.gameObject.name);
         currentState.CollisionEnter(this, collision);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(walkPoint, 2);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, walkPointRange);
     }
 }

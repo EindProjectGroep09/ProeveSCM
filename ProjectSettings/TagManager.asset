@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - MaskBoss
+  - Bullet
+  - Laser
+  - EnemyRed
+  - EnemyBlue
+  - BulletP1
+  - BulletP2
+  - Wall
+  - EnemyGreen
+  - EnemyPurple
   layers:
   - Default
   - TransparentFX
@@ -11,9 +22,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Environment
   - 
   - 
   - 

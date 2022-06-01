@@ -32,10 +32,10 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle - 90, new Vector3(0, 1, 0)), Time.deltaTime * 4) ;
 
 
-        if (movementInput.x != 0 || movementInput.y != 0)
+/*        if (movementInput.x != 0 || movementInput.y != 0)
         {
             audioController.gameSounds[9].Play();
-        }
+        }*/
     }
 
     public void OnMove(Vector2 value)

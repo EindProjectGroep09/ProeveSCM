@@ -13,7 +13,7 @@ public class SequenceStateManager : MonoBehaviour
     public NavMeshAgent agent;
     public float sightRange, walkPointRange, runPointRange;
     public bool gotHit;
-    public float runAwayTime, waitTillRunTime;
+    public float runAwayTime, waitTillRunTime, waitAtPointTime;
     public LayerMask whatIsGround, whatIsplayer;
     public List<Collision> HitObjectsList = new List<Collision>();
     public Vector3 walkPoint;
@@ -54,5 +54,9 @@ public class SequenceStateManager : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, walkPointRange);
+    }
+    public async Task LongRunningOperationAsync(int delay)
+    {
+        await Task.Delay(delay);
     }
 }

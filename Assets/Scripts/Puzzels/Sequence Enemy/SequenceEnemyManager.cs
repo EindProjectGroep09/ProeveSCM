@@ -34,6 +34,7 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(enemiesKilled.Count);
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
@@ -46,6 +47,10 @@ public class SequenceEnemyManager : MonoBehaviour
         if (enemiesKilled == enemySequence)
         {
             FinishedSequence();
+        }
+        else if (enemiesKilled.Count == 3 && enemiesKilled != enemySequence)
+        {
+            LostSequence();
         }
     }
     public void MakeSequence()
@@ -72,23 +77,29 @@ public class SequenceEnemyManager : MonoBehaviour
         enemySequence.Clear();
 
         a = Random.Range(0, 4);
+        enemySequence.Add(a);
+        
         b = Random.Range(0, 4);
-        c = Random.Range(0, 4);
-        if (a == b && b == c)
+        if (enemySequence.Contains(b))
         {
-            a = Random.Range(0, 4);
             b = Random.Range(0, 4);
+        }
+        enemySequence.Add(b);
+        
+        c = Random.Range(0, 4);
+        if (enemySequence.Contains(c))
+        {
             c = Random.Range(0, 4);
         }
-        enemySequence.Add(a);
-        enemySequence.Add(b);
         enemySequence.Add(c);
+
       
         SpawnSequenceEnemy();
     }
 
     public void LostSequence()
     {
+        Debug.Log("The sequence was incorrect");
         playerSequenceHealth -= 1;
         if (SceneManager.GetActiveScene().name == "BossRoom")
         {
@@ -121,6 +132,8 @@ public class SequenceEnemyManager : MonoBehaviour
 
     public void FinishedSequence()
     {
+        Debug.Log("The sequence was done correctly");
+
         MakeSequence();
     }
     private void SpawnSequenceEnemy()

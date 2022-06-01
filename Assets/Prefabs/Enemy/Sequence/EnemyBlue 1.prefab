@@ -106,6 +106,7 @@ MonoBehaviour:
   gotHit: 0
   runAwayTime: 3
   waitTillRunTime: 2
+  waitAtPointTime: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

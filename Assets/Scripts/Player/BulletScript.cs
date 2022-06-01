@@ -39,7 +39,7 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(15f);
         }
-        else
+        else if (collision.gameObject.tag == "EnemyGreen" || collision.gameObject.tag == "EnemyPurple" || collision.gameObject.tag == "EnemyBlue" || collision.gameObject.tag == "EnemyGreen")
         {
             Destroy(gameObject);
         }

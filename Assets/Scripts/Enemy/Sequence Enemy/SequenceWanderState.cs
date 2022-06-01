@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Threading.Tasks;
 public class SequenceWanderState : SequenceBaseState
 {
     public Vector3 walkPoint;
@@ -19,7 +19,7 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void UpdateState(SequenceStateManager enemy)
     {
-        Debug.Log(enemy.gameObject + "'s Walkpointset is: " + walkPointSet);
+        //Debug.Log(enemy.gameObject + "'s Walkpointset is: " + walkPointSet);
         enemy.walkPoint = walkPoint;
         transform = enemy.transform;
         //* checking if the enemy has an wander point
@@ -67,5 +67,11 @@ public class SequenceWanderState : SequenceBaseState
         walkPoint = new Vector3(transform.position.x + RandomX, transform.position.y, transform.position.z + RandomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
+    }
+    private async void ResetWalkpoint(SequenceStateManager enemy)
+    {
+        Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.waitAtPointTime * 2000);
+        await longRunningTask;
+        walkPointSet = false;
     }
 }

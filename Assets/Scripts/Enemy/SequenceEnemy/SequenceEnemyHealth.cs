@@ -11,11 +11,13 @@ public class SequenceEnemyHealth : MonoBehaviour
     public int enemyValue; //! Blue enemy is 0,Green enemy is 1, Purple enemy is 2 Red enemy is 3
     
     private List<Collision> hitObjectList = new List<Collision>();
+    private List<GameObject> hitGameObjectList = new List<GameObject>();
 
-    float timer = 0.5f;
+    float timer = 2f;
 
     bool player1Hit = false;
     bool player2Hit = false;
+    bool allPlayersHit = false;
 
     void Start()
     {
@@ -29,35 +31,49 @@ public class SequenceEnemyHealth : MonoBehaviour
 
     private void Update()
     {
+        
+        Debug.Log(player1Hit + " = player 1 hit");
+        Debug.Log(player2Hit + " = player 2 hit");
+
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
             hitObjectList.Clear();
-            timer = 0.5f;
+            player1Hit = false;
+            player2Hit = false;
+            allPlayersHit = false;
+            timer = 2f;
         }
-        if (hitObjectList.Count >= 2)
+        Debug.Log(allPlayersHit + " = All Players Hit");
+/*        for (int i = 0; i < hitObjectList.Count; i++)
         {
-            for (int i = 0; i < hitObjectList.Count; i++)
-            {
-                 if (hitObjectList[i].gameObject.tag == "BulletP1") player1Hit = true;
-                if (hitObjectList[i].gameObject.tag == "BulletP2") player2Hit = true;
-            }
+            if (hitObjectList[i].gameObject.tag == "BulletP1") player1Hit = true;
+            if (hitObjectList[i].gameObject.tag == "BulletP2") player2Hit = true;
+        }*/
 
-            if (player1Hit && player2Hit)
-            {
-                EnemyDied();
-            }
-            else if (player1Hit || player2Hit)
-            {
-                //enemy.SwitchState(enemy.runState);
-                gameObject.GetComponent<SequenceStateManager>().SwitchState(gameObject.GetComponent<SequenceStateManager>().runState);
-            }
-        }    
+        if (hitGameObjectList.Contains(GameObject.FindGameObjectWithTag("BulletP1")) && hitGameObjectList.Contains(GameObject.FindGameObjectWithTag("BulletP2")))
+        {
+            allPlayersHit = true;
+        }
+        if (allPlayersHit)
+        {
+            EnemyDied();
+        }
+        if (player1Hit && player2Hit)
+        {
+            EnemyDied();
+        }
+        else if (player1Hit || player2Hit)
+        {
+            //enemy.SwitchState(enemy.runState);
+            gameObject.GetComponent<SequenceStateManager>().SwitchState(gameObject.GetComponent<SequenceStateManager>().runState);
+        }   
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         hitObjectList.Add(collision);
+        hitGameObjectList.Add(collision.gameObject);
     }
 
    /*     if (collision.gameObject.tag == "BulletP1" && collision.gameObject.tag == "BulletP2")
@@ -76,13 +92,12 @@ public class SequenceEnemyHealth : MonoBehaviour
     }*/
     public void EnemyDied()
     {
-        if (SceneManager.GetActiveScene().name == "Tutorial")
+        if (SceneManager.GetActiveScene().name == "BossRoom")
         {
-            SET.killedList.Add(enemyValue);
+            SEman.enemiesKilled.Add(enemyValue);
         }
-        SEman.enemiesKilled.Add(enemyValue);
         Debug.Log("I died!");
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
 }

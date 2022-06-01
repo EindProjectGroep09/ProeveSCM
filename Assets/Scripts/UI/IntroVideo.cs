@@ -16,4 +16,9 @@ public class IntroVideo : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void SkipIntroVideo()
+    {
+        StopCoroutine(JoinTutorial());
+        SceneManager.LoadScene("Tutorial");
+    }
 }

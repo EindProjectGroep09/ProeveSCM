@@ -19,7 +19,6 @@ public class SequenceWanderState : SequenceBaseState
 
     public override void UpdateState(SequenceStateManager enemy)
     {
-        Debug.Log(enemy.gameObject + "'s Walkpointset is: " + walkPointSet);
         enemy.walkPoint = walkPoint;
         transform = enemy.transform;
         //* checking if the enemy has an wander point

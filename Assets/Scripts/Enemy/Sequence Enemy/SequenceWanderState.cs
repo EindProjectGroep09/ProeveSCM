@@ -26,8 +26,7 @@ public class SequenceWanderState : SequenceBaseState
         if (walkPointSet) enemy.agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < 1) walkPointSet = false;
-
+        if (distanceToWalkPoint.magnitude < 1) ResetWalkpoint(enemy)
 
         if (enemy.HitObjectsList.Count >= 2)
         {
@@ -66,5 +65,11 @@ public class SequenceWanderState : SequenceBaseState
         walkPoint = new Vector3(transform.position.x + RandomX, transform.position.y, transform.position.z + RandomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
+    }
+
+    private async void ResetWalkpoint(EnemyStateManager enemy){
+        Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.waitAtPointTime * 2000);
+        await longRunningTask;
+        walkPointSet = false;
     }
 }

@@ -32,8 +32,8 @@ public class SequenceEnemyHealth : MonoBehaviour
     private void Update()
     {
         
-        Debug.Log(player1Hit + " = player 1 hit");
-        Debug.Log(player2Hit + " = player 2 hit");
+        //Debug.Log(player1Hit + " = player 1 hit");
+        //Debug.Log(player2Hit + " = player 2 hit");
 
         timer -= Time.deltaTime;
         if (timer <= 0)

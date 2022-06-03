@@ -55,17 +55,34 @@ public class SequenceEnemyManager : MonoBehaviour
         {
             index = 1;
         }
-        if (enemiesKilled == enemySequence)
+
+        if (enemiesKilled.Count > 0 && enemiesKilled[0] == enemySequence[0])
         {
-            sequenceCorrect = true;
+            if (enemiesKilled.Count > 1 && enemiesKilled[1] == enemySequence[1])
+            {
+                if (enemiesKilled.Count > 2 && enemiesKilled[2] == enemySequence[2])
+                {
+                    sequenceCorrect = true;
+                }
+                else
+                {
+                    sequenceIncorrect = true;
+                }
+            }
+            else
+            {
+                sequenceIncorrect = true;
+            }
         }
-        else if (enemiesKilled.Count == 3 && enemiesKilled != enemySequence)
+        else
         {
             sequenceIncorrect = true;
         }
+
     }
     public void MakeSequence()
     {
+        
         //SequenceEnemyUI.instance.sequenceText.Clear();
         foreach (GameObject BlueEnemy in GameObject.FindGameObjectsWithTag("EnemyBlue"))
         {
@@ -95,14 +112,20 @@ public class SequenceEnemyManager : MonoBehaviour
         {
             b = Random.Range(0, 4);
         }
-        enemySequence.Add(b);
+        else
+        {
+            enemySequence.Add(b);
+        }
         
         c = Random.Range(0, 4);
         if (enemySequence.Contains(c))
         {
             c = Random.Range(0, 4);
         }
-        enemySequence.Add(c);
+        else
+        {
+            enemySequence.Add(c);
+        }
 
       
         SpawnSequenceEnemy();

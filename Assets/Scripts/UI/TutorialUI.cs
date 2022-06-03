@@ -49,6 +49,11 @@ public class TutorialUI : MonoBehaviour
         SceneManager.LoadScene("BossRoom");
     }
 
+    public void SkipTutorial()
+    {
+        StopAllCoroutines();
+        SceneManager.LoadScene("BossRoom");
+    }
 
     public string[] textForTutorial;
     int textIndex = 0;

@@ -20,6 +20,9 @@ public class SequenceEnemyManager : MonoBehaviour
     [Header("Killed Enemies")]
     public List<int> enemiesKilled;
 
+    bool sequenceCorrect = false;
+    bool sequenceIncorrect = false;
+
     [Header("Timer")]
     private float timer;
     int playerSequenceHealth = 3;
@@ -34,6 +37,14 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        if (sequenceCorrect)
+        {
+            FinishedSequence();
+        }
+        if (sequenceIncorrect)
+        {
+            LostSequence();
+        }
         Debug.Log(enemiesKilled.Count);
         timer -= Time.deltaTime;
         if (timer <= 0)
@@ -46,11 +57,11 @@ public class SequenceEnemyManager : MonoBehaviour
         }
         if (enemiesKilled == enemySequence)
         {
-            FinishedSequence();
+            sequenceCorrect = true;
         }
         else if (enemiesKilled.Count == 3 && enemiesKilled != enemySequence)
         {
-            LostSequence();
+            sequenceIncorrect = true;
         }
     }
     public void MakeSequence()
@@ -99,6 +110,7 @@ public class SequenceEnemyManager : MonoBehaviour
 
     public void LostSequence()
     {
+        sequenceIncorrect = false;
         Debug.Log("The sequence was incorrect");
         playerSequenceHealth -= 1;
         if (SceneManager.GetActiveScene().name == "BossRoom")
@@ -132,6 +144,7 @@ public class SequenceEnemyManager : MonoBehaviour
 
     public void FinishedSequence()
     {
+        sequenceCorrect = false;
         Debug.Log("The sequence was done correctly");
 
         MakeSequence();

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class SequenceWanderState : SequenceBaseState
 {
@@ -26,7 +27,7 @@ public class SequenceWanderState : SequenceBaseState
         if (walkPointSet) enemy.agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-        if (distanceToWalkPoint.magnitude < 1) ResetWalkpoint(enemy)
+        if (distanceToWalkPoint.magnitude < 1) ResetWalkpoint(enemy);
 
         if (enemy.HitObjectsList.Count >= 2)
         {
@@ -67,7 +68,7 @@ public class SequenceWanderState : SequenceBaseState
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
     }
 
-    private async void ResetWalkpoint(EnemyStateManager enemy){
+    private async void ResetWalkpoint(SequenceStateManager enemy){
         Task longRunningTask = enemy.LongRunningOperationAsync((int)enemy.waitAtPointTime * 2000);
         await longRunningTask;
         walkPointSet = false;

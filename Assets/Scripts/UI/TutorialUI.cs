@@ -28,7 +28,6 @@ public class TutorialUI : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Textindex is: " + textIndex);
         //Debug.Log(coroutineRunning);
         if (GameObject.FindGameObjectWithTag("Player"))
         {

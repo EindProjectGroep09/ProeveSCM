@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &2083625280799770018
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696051168882200283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd1fafa25f887a64899ae069cca79c09, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2284612429707326724
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +701,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MDL_Hitman_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6039144921861547374, guid: f923d3aa832bfb8409de050961153de2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039144921861547374, guid: f923d3aa832bfb8409de050961153de2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039144921861547374, guid: f923d3aa832bfb8409de050961153de2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8012274577375024846, guid: f923d3aa832bfb8409de050961153de2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -691,6 +722,11 @@ PrefabInstance:
 --- !u!4 &208025904268989537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f923d3aa832bfb8409de050961153de2, type: 3}
+  m_PrefabInstance: {fileID: 390044089052377994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &696051168882200283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f923d3aa832bfb8409de050961153de2, type: 3}
   m_PrefabInstance: {fileID: 390044089052377994}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6128885307845906566

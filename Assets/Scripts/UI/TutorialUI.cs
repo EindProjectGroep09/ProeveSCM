@@ -75,7 +75,7 @@ public class TutorialUI : MonoBehaviour
                 coroutineRunning = false;
                 break;
         }
-        textAreaText.text = textForTutorial[textIndex];
+        if (textIndex <= textForTutorial.Length)textAreaText.text = textForTutorial[textIndex];
         mrBossTextArea.SetActive(true);
         yield return new WaitForSeconds(5f);
         mrBossTextArea.SetActive(false);

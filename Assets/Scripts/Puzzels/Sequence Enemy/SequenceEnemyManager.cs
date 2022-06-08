@@ -29,6 +29,8 @@ public class SequenceEnemyManager : MonoBehaviour
 
     [SerializeField] GameObject maskObject;
     private Animator animMask;
+
+    public int[] numbersOfColors = new int[] { 0, 1, 2, 3 };
     private void Start()
     {
         maskObject = GameObject.FindGameObjectWithTag("MaskBoss");
@@ -37,6 +39,20 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        if (enemySequence.Count < 3)
+        {
+            int j = Random.Range(0, 4);
+            if (enemySequence.Contains(j))
+            {
+                Debug.Log("I have chosen a new number");
+                j = Random.Range(0, 4);
+            }
+            else
+            {
+                enemySequence.Add(j);
+            }
+        }
+
         if (sequenceCorrect)
         {
             FinishedSequence();
@@ -56,29 +72,31 @@ public class SequenceEnemyManager : MonoBehaviour
             index = 1;
         }
 
-        if (enemiesKilled.Count > 0 && enemiesKilled[0] == enemySequence[0])
+        Debug.Log("Killed enemy is: " + enemiesKilled[0]);
+        Debug.Log("Killed enemy is: " + enemiesKilled[1]);
+        Debug.Log("Killed enemy is: " + enemiesKilled[2]);
+        Debug.Log("Killed enemy amount is: " + enemiesKilled.Count);
+
+        if (enemiesKilled.Count == 3)
         {
-            if (enemiesKilled.Count > 1 && enemiesKilled[1] == enemySequence[1])
+            if (enemiesKilled[0] == enemySequence[0] && enemiesKilled[1] == enemySequence[1] && enemiesKilled[2] == enemySequence[2])
             {
-                if (enemiesKilled.Count > 2 && enemiesKilled[2] == enemySequence[2])
-                {
-                    sequenceCorrect = true;
-                }
-                else
-                {
-                    sequenceIncorrect = true;
-                }
+                sequenceCorrect = true;
             }
             else
             {
                 sequenceIncorrect = true;
             }
         }
-        else
+   /*     if (enemiesKilled.Count == 3 && enemiesKilled == enemySequence)
+        {
+            sequenceCorrect = true;
+        }
+        else if (enemiesKilled.Count == 3 && enemiesKilled != enemySequence)
         {
             sequenceIncorrect = true;
         }
-
+*/
     }
     public void MakeSequence()
     {
@@ -103,30 +121,7 @@ public class SequenceEnemyManager : MonoBehaviour
 
         timer = 30f;
         enemySequence.Clear();
-
-        a = Random.Range(0, 4);
-        enemySequence.Add(a);
-        
-        b = Random.Range(0, 4);
-        if (enemySequence.Contains(b))
-        {
-            b = Random.Range(0, 4);
-        }
-        else
-        {
-            enemySequence.Add(b);
-        }
-        
-        c = Random.Range(0, 4);
-        if (enemySequence.Contains(c))
-        {
-            c = Random.Range(0, 4);
-        }
-        else
-        {
-            enemySequence.Add(c);
-        }
-
+        enemiesKilled.Clear();
       
         SpawnSequenceEnemy();
     }
@@ -180,3 +175,53 @@ public class SequenceEnemyManager : MonoBehaviour
         GameObject EnemyRed = Instantiate(enemyRed, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity); 
     }
 }
+
+/*  if (enemiesKilled != null)
+  {
+      if (enemiesKilled.Count == 1 && enemiesKilled[0] == enemySequence[0])
+      {
+          if (enemiesKilled.Count == 2 && enemiesKilled[1] == enemySequence[1])
+          {
+              if (enemiesKilled.Count == 3 && enemiesKilled[2] == enemySequence[2])
+              {
+                  sequenceCorrect = true;
+              }
+              else
+              {
+                  sequenceIncorrect = true;
+              }
+          }
+          else
+          {
+              sequenceIncorrect = true;
+          }
+      }
+      else
+      {
+          sequenceIncorrect = true;
+      }*/
+//}
+
+/*a = Random.Range(0, 4);
+enemySequence.Add(a);
+
+b = Random.Range(0, 4);
+if (enemySequence.Contains(b))
+{
+    b = Random.Range(0, 4);
+}
+else
+{
+    enemySequence.Add(b);
+}
+
+c = Random.Range(0, 4);
+if (enemySequence.Contains(c))
+{
+    c = Random.Range(0, 4);
+}
+else
+{
+    enemySequence.Add(c);
+}
+*/

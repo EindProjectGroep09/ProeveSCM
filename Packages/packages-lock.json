@@ -77,7 +77,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "file:C:/Users/justi/Downloads/InputSystem-develop/InputSystem-develop/Packages/com.unity.inputsystem",
+      "version": "file:C:\\Users\\justi\\Downloads\\InputSystem-develop\\InputSystem-develop\\Packages\\com.unity.inputsystem",
       "depth": 0,
       "source": "local",
       "dependencies": {

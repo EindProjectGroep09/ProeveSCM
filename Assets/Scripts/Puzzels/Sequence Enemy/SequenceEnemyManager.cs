@@ -174,13 +174,9 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     private void SpawnSequenceEnemy()
     {
-       // for (int i = 0; i < 2; i++)
-        //{
-            GameObject EnemyBlue = Instantiate(enemyBlue, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
-            GameObject EnemyGreen = Instantiate(enemyGreen, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
-            GameObject EnemyPurple = Instantiate(enemyPurple, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
-            GameObject EnemyRed = Instantiate(enemyRed, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity); 
-       // }
-
+        GameObject EnemyBlue = Instantiate(enemyBlue, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+        GameObject EnemyGreen = Instantiate(enemyGreen, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+        GameObject EnemyPurple = Instantiate(enemyPurple, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity);
+        GameObject EnemyRed = Instantiate(enemyRed, new Vector3(Random.Range(-20f, 20f), 7, Random.Range(-10f, 15f)), Quaternion.identity); 
     }
 }

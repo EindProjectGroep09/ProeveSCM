@@ -13,13 +13,26 @@ public class EnemyMeleeState : EnemyBaseState {
         enemy.agent.SetDestination(enemy.transform.position);
         enemy.transform.LookAt(enemy.currentTarget);
 
-        if(!alreadyAttacked) {
+        if (alreadyAttacked)
+        {
+            enemy.timeBetweenAttacks -= Time.deltaTime;
+        }
+
+        if (enemy.timeBetweenAttacks <= 0)
+        {
+            ResetAttack();
+        }
+
+        if (!alreadyAttacked) {
 
             //TODO: enemy melee attack code 
 
+            enemy.currentTarget.gameObject.GetComponent<PlayerHealth>().TakeDamage(10f);
             alreadyAttacked = true;
+            enemy.timeBetweenAttacks = 2f;
+
             // Invoke(nameof(ResetAttack), enemy.timeBetweenAttacks);
-            
+
         }
 
         if(Vector3.Distance(enemy.transform.position, enemy.currentTarget.position) > enemy.meleeRange + 3)  enemy.SwitchState(enemy.chaseState);

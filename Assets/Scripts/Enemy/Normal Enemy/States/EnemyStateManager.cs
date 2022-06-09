@@ -43,6 +43,7 @@ public class EnemyStateManager : MonoBehaviour{
     }
 
     public void Update(){
+
         currentState.UpdateState(this);
         AllTargetsInRange.AddRange(Physics.OverlapSphere(transform.position, sightRange, whatIsPlayer));
 

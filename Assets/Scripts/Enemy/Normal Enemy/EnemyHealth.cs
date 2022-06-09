@@ -26,7 +26,13 @@ public class EnemyHealth : MonoBehaviour
     {
         
     }
-
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag.Contains("BulletP"))
+        {
+            TakeDamage(15);
+        }
+    }
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;

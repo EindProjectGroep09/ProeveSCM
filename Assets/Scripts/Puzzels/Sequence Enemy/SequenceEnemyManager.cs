@@ -7,6 +7,8 @@ public class SequenceEnemyManager : MonoBehaviour
 
     public int index = 0;
 
+    EnemySpawner enemySpawn;
+
     [Header ("EnemySequence")]
     private int a, b, c;
     public List<int> enemySequence = new List<int>();
@@ -33,6 +35,7 @@ public class SequenceEnemyManager : MonoBehaviour
     public int[] numbersOfColors = new int[] { 0, 1, 2, 3 };
     private void Start()
     {
+        enemySpawn = FindObjectOfType<EnemySpawner>();
         maskObject = GameObject.FindGameObjectWithTag("MaskBoss");
         animMask = maskObject.GetComponent<Animator>();
         MakeSequence();
@@ -122,7 +125,7 @@ public class SequenceEnemyManager : MonoBehaviour
         timer = 30f;
         enemySequence.Clear();
         enemiesKilled.Clear();
-      
+        enemySpawn.StartCoroutine(enemySpawn.SpawnWave(enemySpawn.enemiesPerWave));
         SpawnSequenceEnemy();
     }
 

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class TutorialUI : MonoBehaviour
 {
     public int index = 0;
     [SerializeField] GameObject enemyTutorial;
     public GameObject mrBossTextArea;
-    public Text textAreaText;
+    public TMP_Text textAreaText;
     public GameObject tutorialImage;
     bool coroutineRunning = true;
 

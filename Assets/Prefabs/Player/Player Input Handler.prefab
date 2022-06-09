@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefabs:
-  - {fileID: 6007015825994900883, guid: 5c4ec4b32d4224a4e82d9b138ae505aa, type: 3}
-  - {fileID: 7708068177792321977, guid: d7f722ead6054a843b73596a54d3e537, type: 3}
+  - {fileID: 5698143626570353704, guid: 53e8c861aa327564387e5b14e9ca0cde, type: 3}
+  - {fileID: 7129857174574839221, guid: d56be3cd5febaa14bb3eba7964884f0f, type: 3}

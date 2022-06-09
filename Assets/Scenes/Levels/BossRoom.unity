@@ -175,6 +175,7 @@ MonoBehaviour:
   enemyRed: {fileID: 4052181281529089882, guid: c9a1850364749a84a80d581d1563fafb, type: 3}
   enemiesKilled: 
   maskObject: {fileID: 1108810440}
+  numbersOfColors: 00000000010000000200000003000000
 --- !u!114 &271931678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,10 +194,10 @@ MonoBehaviour:
   - {fileID: 1729020188}
   - {fileID: 1456378321}
   sequenceColors:
-  - {fileID: 21300000, guid: 7387279fa666b5940aa047b13a9f8f24, type: 3}
-  - {fileID: 21300000, guid: 350070e1528b02341a5c9a6a5d0e3207, type: 3}
-  - {fileID: 21300000, guid: e6c408603bd6f6343aa002db275e303b, type: 3}
-  - {fileID: 21300000, guid: c11b67009af0ea542a9da0fe52ff1931, type: 3}
+  - {fileID: 21300000, guid: 23250ff5d37e9ac43b0533468f458019, type: 3}
+  - {fileID: 21300000, guid: cdf2c17fc70b8464884e2c4775604c6d, type: 3}
+  - {fileID: 21300000, guid: 75834432ae6596d478d2a71677607540, type: 3}
+  - {fileID: 21300000, guid: a8714b240305d7640b8c9f98dc83a7af, type: 3}
   timerText: {fileID: 834007794}
 --- !u!82 &272423992 stripped
 AudioSource:
@@ -263,7 +264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8e58edd87a199bf40ba7c8d171e1e4af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e6f376510e3d1f47bb38870ed2185f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -996,14 +997,14 @@ RectTransform:
   m_GameObject: {fileID: 1456378319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13541, y: 0.367259, z: 1.3541}
+  m_LocalScale: {x: 0.123223096, y: 0.3342057, z: 1.232231}
   m_Children: []
   m_Father: {fileID: 339227258}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28.4, y: 0}
+  m_AnchoredPosition: {x: 27.7, y: 8.999991}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456378321
@@ -1071,14 +1072,14 @@ RectTransform:
   m_GameObject: {fileID: 1512008162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13541, y: 0.367259, z: 1.3541}
+  m_LocalScale: {x: 0.123223096, y: 0.3342057, z: 1.232231}
   m_Children: []
   m_Father: {fileID: 339227258}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -29.4, y: 0}
+  m_AnchoredPosition: {x: -24.9, y: 9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1512008164
@@ -1246,14 +1247,14 @@ RectTransform:
   m_GameObject: {fileID: 1729020186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13541, y: 0.367259, z: 1.3541}
+  m_LocalScale: {x: 0.123223096, y: 0.3342057, z: 1.232231}
   m_Children: []
   m_Father: {fileID: 339227258}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.3, y: 0}
+  m_AnchoredPosition: {x: 2.1, y: 8.999991}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729020188

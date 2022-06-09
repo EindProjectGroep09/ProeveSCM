@@ -8,6 +8,7 @@ public class SequenceEnemyManager : MonoBehaviour
     public int index = 0;
 
     EnemySpawner enemySpawn;
+    PlayerHealth[] playerHealths;
 
     [Header ("EnemySequence")]
     private int a, b, c;
@@ -42,6 +43,9 @@ public class SequenceEnemyManager : MonoBehaviour
     }
     private void Update()
     {
+        
+        playerHealths = FindObjectsOfType<PlayerHealth>();
+
         if (enemySequence.Count < 3)
         {
             int j = Random.Range(0, 4);
@@ -122,6 +126,13 @@ public class SequenceEnemyManager : MonoBehaviour
             Destroy(PurpleEnemy);
         }
 
+        if (playerHealths != null)
+        {
+            for (int i = 0; i < playerHealths.Length; i++)
+            {
+                playerHealths[i].currentHealth += 50f;
+            }
+        }
         timer = 30f;
         enemySequence.Clear();
         enemiesKilled.Clear();

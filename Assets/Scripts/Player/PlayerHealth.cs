@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class PlayerHealth : MonoBehaviour
 {
     AudioController audioController;
@@ -20,6 +22,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
+        if (currentHealth > health)
+        {
+            currentHealth = health;
+        }
         healthBar.value = currentHealth;
         healthText.text = currentHealth + "/" + health;
     }
@@ -31,8 +37,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            SceneManager.LoadScene("GameOverScreen");
             audioController.gameSounds[11].Play();
-            Destroy(gameObject);
         }
     }
 }

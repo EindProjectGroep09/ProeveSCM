@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnEnemy(meleeEnemy);
         }
-        if (enemiesPerWave < 5)
+        if (enemiesPerWave < 3)
         {
             enemiesPerWave++;
         }

@@ -59,7 +59,7 @@ public class SequenceEnemyUI : MonoBehaviour
         timerCheck = true;
         yield return new WaitForSeconds(1);
         levelTimerInSeconds -= 1;
-        if (levelTimerInSeconds <= 0)
+        if (levelTimerInSeconds < 1)
         {
             levelTimerInMinutes -= 1;
 

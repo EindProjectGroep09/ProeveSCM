@@ -715,6 +715,7 @@ MonoBehaviour:
   textAreaText: {fileID: 1989756883}
   tutorialImage: {fileID: 947877455}
   tutorialSequence: {fileID: 1440814471}
+  doorTrigger: {fileID: 1613970090}
   textForTutorial:
   - Finally, you guys made it! Try walking with your left stick.
   - Well Done! Now try to look around using the right stick.
@@ -722,6 +723,16 @@ MonoBehaviour:
     the left and right bumpers.
   - Watch out! some enemies came to get you guys, get them or they will get you.
   - That doesn't seem to work out, try shooting both sides at the same time.
+  - Watch out, in the next room you will need to kill the enemies in the right order.
+    you can see the order to the right of the mask.
+  - There will also be a new enemy, you can kill it on your own, but it will try
+    to kill you too.
+  - To the left of the mask you are going to see a timer, this is the timer you will
+    need to survive.
+  - The mask is your health indication, the happier he is, the more health you have
+    left!
+  - Now, Walk through the door  and continue your journey to the boss room. Good
+    luck!
 --- !u!1 &384777031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1166,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 947877455}
   m_CullTransparentMesh: 1
+--- !u!4 &1038695009 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6833312686035049031, guid: ef3d473bd3327aa41bb8b8bbf8b56658, type: 3}
+  m_PrefabInstance: {fileID: 1742736061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1052742010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1701,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599229723}
   m_CullTransparentMesh: 1
+--- !u!1 &1613970090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613970091}
+  - component: {fileID: 1613970092}
+  - component: {fileID: 1613970093}
+  m_Layer: 0
+  m_Name: DoorTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1613970091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613970090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 54, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1038695009}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1613970092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613970090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.28, y: 933.4, z: 561.88}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1613970093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613970090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863a4d187fce9954ea3749b4a4d4f398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1633540500
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BossRoomTrigger : MonoBehaviour
 {
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")

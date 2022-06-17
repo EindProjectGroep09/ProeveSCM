@@ -16,7 +16,8 @@ public class TutorialUI : MonoBehaviour
 
     SequenceEnemyTutorial SET;
     public GameObject tutorialSequence;
-
+    public GameObject doorTrigger;
+    
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "Tutorial")
@@ -37,17 +38,12 @@ public class TutorialUI : MonoBehaviour
         }
         if (!coroutineRunning)
         {
-            StartCoroutine(TutorialEnd());
+            doorTrigger.SetActive(true);
         }
         if (!tutorialTextRunning)
         {
             StartCoroutine(TutorialText());
         }
-    }
-    IEnumerator TutorialEnd()
-    {
-        yield return new WaitForSeconds(10);
-        SceneManager.LoadScene("BossRoom");
     }
 
     public void SkipTutorial()
@@ -72,13 +68,13 @@ public class TutorialUI : MonoBehaviour
                 tutorialImage.SetActive(false);
                 enemyTutorial.SetActive(true);
                 break;
-            case 5:
+            case 10:
                 coroutineRunning = false;
                 break;
         }
         if (textIndex <= textForTutorial.Length)textAreaText.text = textForTutorial[textIndex];
         mrBossTextArea.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(8f);
         mrBossTextArea.SetActive(false);
         yield return new WaitForSeconds(5);
         tutorialTextRunning = false;
